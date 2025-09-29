@@ -27,56 +27,61 @@ Example: PES scan in Ammonia Borate (NH\ :math:`_3`\ BH\ :math:`_3`)
 Introduction
 ------------
 
-In this tutorial, we demonstrate how to use **SPARC** to build a ML potential and then later use that to study the dissociation of B-N bond. We will show how to:
+In this tutorial, we demonstrate how to run the **SPARC** workflow. We will show how to:
 
-1. Prepare input files, also see section :ref:`inputfile` .
-2. Run **ab initio molecular dynamics** (AIMD).
-3. Train a DeepMD potential.
-4. Run Machine Learning Molecular Dynamics (ML/MD).
-5. Use **active learning** together with **QbC** to adaptively improve the model.
-6. Perform analysis and visualize results.
+.. to build a ML potential and then later use that to study the dissociation of B-N bond. 
+
+1. Prepare input files, see section :ref:`inputfile` for details,
+2. Prepare data,
+3. Train ML potential models with DeepMD-kit,
+4. Run machine learning molecular dynamics (ML/MD),
+5. Use **active learning** together with **QbC** to adaptively improve the model,
 
 Preparation
 -----------
 
-First, create a new working directory and copy the example files:
+First, create a new test directory, and download tutorial data:
 
 .. code-block:: bash
 
-   mkdir nh3bh3_example
-   cd nh3bh3_example
-   cp -r $SPARC_HOME/docs/tests/nh3bh3/* .
+   mkdir nh3bh3_test
+   cd nh3bh3_test
+   wget https://github.com/rahulumrao/sparc/raw/main/examples/AmmoniaBorate.zip
+   unzip AmmoniaBorate.zip
 
-The folder contains:
+You can also download the archive directly from `here <https://github.com/rahulumrao/sparc/raw/main/examples/AmmoniaBorate.zip>`_ .
+
+..   cp -r $SPARC_HOME/docs/tests/nh3bh3/* .   
+
+If you `cd` to the folder it will have the following file,
 
 .. code-block:: bash
 
-   .
-   ├── INCAR
-   ├── POSCAR
-   ├── input.yaml
-   └── input.json
+   $ cd AmmoniaBorate
+   $ ls
+   INCAR  POSCAR  input.json  input.yaml  iter_000000  plumed_dp.dat
+   $ tree iter_000000
+      iter_000000
+      └── 00.dft
+         └── AseMD.traj
 
-- ``POSCAR``: Initial structure.
-- ``INCAR``: VASP control file for AIMD.
-- ``input.yaml``: SPARC configuration.
+- ``POSCAR``: Initial structure in VASP format,
+- ``INCAR``: VASP input file,
+- ``plumed_dp.dat``: Plumed file,
+- ``input.yaml``: SPARC input file,
 - ``input.json``: DeepMD training parameters.
 
-YAML Input
-----------
+The file, ``AseMD.traj`` inside folder, ``iter_000000/00.dft`` the initial data to start the workflow computed from VASP. Now we only need to make ``yaml`` file for *sparc* configurations. To preapre input file see :ref:`inputfile` section.
 
-The ``input.yaml`` defines the SPARC workflow:
+The ``input.yaml`` defines the SPARC workflow, which is organized into four main steps:
 
-.. literalinclude:: input.yaml
-   :language: yaml
-   :caption: Example ``input.yaml`` file.
+1. Initial **Data preparation** with *ab initio* configurations
+2. Run DeepMD-kit for **Training ML models**  interatomic potential models,
+3. Use ASE MD engine together with Plumed to run **Machine Learning Molecular Dynamics (ML/MD)** sampling,
+4. Iteratively improve ML potential with **Active learning** by detecting poorly represented regions with new candidates.
 
-Key sections:
 
-- ``general``: Structure file, MD steps, log frequency.
-- ``md_simulation``: Ensemble, thermostat, timestep, temperature.
-- ``dft_calculator``: Settings for VASP.
-- ``active_learning``: Control for iterative improvement.
+This loop enables SPARC to progressively refine the ML potential while maintaining high accuracy.
 
 Running AIMD
 ------------

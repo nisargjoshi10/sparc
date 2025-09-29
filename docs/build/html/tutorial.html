@@ -148,7 +148,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#example-pes-scan-in-ammonia-borate-nh-3bh-3">Example: PES scan in Ammonia Borate (NH<span class="math notranslate nohighlight">\(_3\)</span>BH<span class="math notranslate nohighlight">\(_3\)</span>)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#preparation">Preparation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#yaml-input">YAML Input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-aimd">Running AIMD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#training-deepmd">Training DeepMD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#running-ml-md">Running ML/MD</a></li>
@@ -221,49 +220,51 @@
 </div></section>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
-<p>In this tutorial, we demonstrate how to use <strong>SPARC</strong> to build a ML potential and then later use that to study the dissociation of B-N bond. We will show how to:</p>
+<p>In this tutorial, we demonstrate how to run the <strong>SPARC</strong> workflow. We will show how to:</p>
 <ol class="arabic simple">
-<li><p>Prepare input files, also see section <a class="reference internal" href="yaml.html#inputfile"><span class="std std-ref">Input File</span></a> .</p></li>
-<li><p>Run <strong>ab initio molecular dynamics</strong> (AIMD).</p></li>
-<li><p>Train a DeepMD potential.</p></li>
-<li><p>Run Machine Learning Molecular Dynamics (ML/MD).</p></li>
-<li><p>Use <strong>active learning</strong> together with <strong>QbC</strong> to adaptively improve the model.</p></li>
-<li><p>Perform analysis and visualize results.</p></li>
+<li><p>Prepare input files, see section <a class="reference internal" href="yaml.html#inputfile"><span class="std std-ref">Input File</span></a> for details,</p></li>
+<li><p>Prepare data,</p></li>
+<li><p>Train ML potential models with DeepMD-kit,</p></li>
+<li><p>Run machine learning molecular dynamics (ML/MD),</p></li>
+<li><p>Use <strong>active learning</strong> together with <strong>QbC</strong> to adaptively improve the model,</p></li>
 </ol>
 </section>
 <section id="preparation">
 <h2>Preparation<a class="headerlink" href="#preparation" title="Link to this heading"></a></h2>
-<p>First, create a new working directory and copy the example files:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>nh3bh3_example
-<span class="nb">cd</span><span class="w"> </span>nh3bh3_example
-cp<span class="w"> </span>-r<span class="w"> </span><span class="nv">$SPARC_HOME</span>/docs/tests/nh3bh3/*<span class="w"> </span>.
+<p>First, create a new test directory, and download tutorial data:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>nh3bh3_test
+<span class="nb">cd</span><span class="w"> </span>nh3bh3_test
+wget<span class="w"> </span>https://github.com/rahulumrao/sparc/raw/main/examples/AmmoniaBorate.zip
+unzip<span class="w"> </span>AmmoniaBorate.zip
 </pre></div>
 </div>
-<p>The folder contains:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
-├──<span class="w"> </span>INCAR
-├──<span class="w"> </span>POSCAR
-├──<span class="w"> </span>input.yaml
-└──<span class="w"> </span>input.json
+<p>You can also download the archive directly from <a class="reference external" href="https://github.com/rahulumrao/sparc/raw/main/examples/AmmoniaBorate.zip">here</a> .</p>
+<p>If you <span class="math notranslate nohighlight">\(cd\)</span> to the folder it will have the following file,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>AmmoniaBorate
+$<span class="w"> </span>ls
+INCAR<span class="w">  </span>POSCAR<span class="w">  </span>input.json<span class="w">  </span>input.yaml<span class="w">  </span>iter_000000<span class="w">  </span>plumed_dp.dat
+$<span class="w"> </span>tree<span class="w"> </span>iter_000000
+<span class="w">   </span>iter_000000
+<span class="w">   </span>└──<span class="w"> </span><span class="m">00</span>.dft
+<span class="w">      </span>└──<span class="w"> </span>AseMD.traj
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">POSCAR</span></code>: Initial structure.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">INCAR</span></code>: VASP control file for AIMD.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">input.yaml</span></code>: SPARC configuration.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">POSCAR</span></code>: Initial structure in VASP format,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INCAR</span></code>: VASP input file,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plumed_dp.dat</span></code>: Plumed file,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input.yaml</span></code>: SPARC input file,</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">input.json</span></code>: DeepMD training parameters.</p></li>
 </ul>
-</section>
-<section id="yaml-input">
-<h2>YAML Input<a class="headerlink" href="#yaml-input" title="Link to this heading"></a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">input.yaml</span></code> defines the SPARC workflow:</p>
-<p>Key sections:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">general</span></code>: Structure file, MD steps, log frequency.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">md_simulation</span></code>: Ensemble, thermostat, timestep, temperature.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">dft_calculator</span></code>: Settings for VASP.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">active_learning</span></code>: Control for iterative improvement.</p></li>
-</ul>
+<p>The file, <code class="docutils literal notranslate"><span class="pre">AseMD.traj</span></code> inside folder, <code class="docutils literal notranslate"><span class="pre">iter_000000/00.dft</span></code> the initial data to start the workflow computed from VASP. Now we only need to make <code class="docutils literal notranslate"><span class="pre">yaml</span></code> file for <em>sparc</em> configurations. To preapre input file see <a class="reference internal" href="yaml.html#inputfile"><span class="std std-ref">Input File</span></a> section.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">input.yaml</span></code> defines the SPARC workflow, which is organized into four main steps:</p>
+<ol class="arabic simple">
+<li><p>Initial <strong>Data preparation</strong> with <em>ab initio</em> configurations</p></li>
+<li><p>Run DeepMD-kit for <strong>Training ML models</strong>  interatomic potential models,</p></li>
+<li><p>Use ASE MD engine together with Plumed to run <strong>Machine Learning Molecular Dynamics (ML/MD)</strong> sampling,</p></li>
+<li><p>Iteratively improve ML potential with <strong>Active learning</strong> by detecting poorly represented regions with new candidates.</p></li>
+</ol>
+<p>This loop enables SPARC to progressively refine the ML potential while maintaining high accuracy.</p>
 </section>
 <section id="running-aimd">
 <h2>Running AIMD<a class="headerlink" href="#running-aimd" title="Link to this heading"></a></h2>

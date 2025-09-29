@@ -62,8 +62,8 @@ if "--analysis" in sys.argv:
 def main():
     """Main function that coordinates the entire workflow."""
     #--------------------------------------------------------------------------------------#
-    setup_logger(enable=True)
     banner()
+    setup_logger(enable=True)
     #--------------------------------------------------------------------------------------#
     # Parse command line arguments and load configuration
     parser = argparse.ArgumentParser(description='Run main SPARC workflow')
