@@ -12,12 +12,12 @@ Ammonia Borate (NH\ :math:`_3`\ BH\ :math:`_3`)
 -----------------------------------------------
 
 
-.. figure:: _static/AmmoniaBorate.png
+.. figure:: ../_static/AmmoniaBorate.png
    :alt: Ammonia Borate structure
    :width: 400px
    :align: center
 
-   .. Potential energy surface scan for NH3BH3.
+   Schematic representation of B-N bond dissociation in NH\ :math:`_3`\ BH\ :math:`_3` .
 
 .. contents:: Table of Contents
    :depth: 2

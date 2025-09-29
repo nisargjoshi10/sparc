@@ -166,7 +166,7 @@
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="analysis.html#overview">Overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="analysis.html#model-deviation-in-forces">Model deviation in Forces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="analysis.html#function">Function:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#api-reference">API Reference:</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
@@ -219,26 +219,29 @@
 <p>Welcome to the SPARC tutorial!</p>
 <section id="ammonia-borate-nh-3bh-3">
 <h2>Ammonia Borate (NH<span class="math notranslate nohighlight">\(_3\)</span>BH<span class="math notranslate nohighlight">\(_3\)</span>)<a class="headerlink" href="#ammonia-borate-nh-3bh-3" title="Link to this heading"></a></h2>
-<figure class="align-center">
-<a class="reference internal image-reference" href="_static/AmmoniaBorate.png"><img alt="Ammonia Borate structure" src="_static/AmmoniaBorate.png" style="width: 400px;" />
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/AmmoniaBorate.png"><img alt="Ammonia Borate structure" src="_images/AmmoniaBorate.png" style="width: 400px;" />
 </a>
+<figcaption>
+<p><span class="caption-text">Schematic representation of B-N bond dissociation in NH<span class="math notranslate nohighlight">\(_3\)</span>BH<span class="math notranslate nohighlight">\(_3\)</span> .</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
 </figure>
 <nav class="contents local" id="table-of-contents">
 <p class="topic-title">Table of Contents</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#introduction" id="id6">Introduction</a></p></li>
-<li><p><a class="reference internal" href="#preparation" id="id7">Preparation</a></p></li>
-<li><p><a class="reference internal" href="#execute-sparc" id="id8">Execute SPARC</a></p></li>
-<li><p><a class="reference internal" href="#training-ml-models" id="id9">Training ML Models</a></p></li>
-<li><p><a class="reference internal" href="#running-ml-md" id="id10">Running ML/MD</a></p></li>
-<li><p><a class="reference internal" href="#active-learning-loop" id="id11">Active Learning Loop</a></p></li>
-<li><p><a class="reference internal" href="#monitor-workflow" id="id12">Monitor Workflow</a></p></li>
-<li><p><a class="reference internal" href="#plumed-plugin" id="id13">PLUMED Plugin</a></p></li>
-<li><p><a class="reference internal" href="#next-step" id="id14">Next Step</a></p></li>
+<li><p><a class="reference internal" href="#introduction" id="id7">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#preparation" id="id8">Preparation</a></p></li>
+<li><p><a class="reference internal" href="#execute-sparc" id="id9">Execute SPARC</a></p></li>
+<li><p><a class="reference internal" href="#training-ml-models" id="id10">Training ML Models</a></p></li>
+<li><p><a class="reference internal" href="#running-ml-md" id="id11">Running ML/MD</a></p></li>
+<li><p><a class="reference internal" href="#active-learning-loop" id="id12">Active Learning Loop</a></p></li>
+<li><p><a class="reference internal" href="#monitor-workflow" id="id13">Monitor Workflow</a></p></li>
+<li><p><a class="reference internal" href="#plumed-plugin" id="id14">PLUMED Plugin</a></p></li>
+<li><p><a class="reference internal" href="#next-step" id="id15">Next Step</a></p></li>
 </ul>
 </nav>
 <section id="introduction">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading"></a></h3>
 <p>In this tutorial, we demonstrate how to run the <strong>SPARC</strong> workflow end-to-end. We will show how to:</p>
 <ol class="arabic simple">
 <li><p>Prepare input files (see <a class="reference internal" href="yaml.html#inputfile"><span class="std std-ref">Input File</span></a> for details),</p></li>
@@ -249,7 +252,7 @@
 </ol>
 </section>
 <section id="preparation">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Preparation</a><a class="headerlink" href="#preparation" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Preparation</a><a class="headerlink" href="#preparation" title="Link to this heading"></a></h3>
 <p>First, create a new test directory and download the tutorial data. If you haven’t installed SPARC yet, see <a class="reference internal" href="install.html"><span class="doc">SPARC Installation Guide</span></a> or the <a class="reference internal" href="quickstart.html"><span class="doc">Quick Start Guide</span></a> guide.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>nh3bh3_test
 <span class="nb">cd</span><span class="w"> </span>nh3bh3_test
@@ -287,8 +290,8 @@ $<span class="w"> </span>tree<span class="w"> </span>iter_000000
 <p class="admonition-title">Note</p>
 <p class="centered">
 <strong>Each file is included in this tutorial for reference.</strong></p></div>
-<div class="literal-block-wrapper docutils container" id="id1">
-<div class="code-block-caption"><span class="caption-text">input.yaml</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">input.yaml</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># YAML configuration file for SPARC pacakge</span>
 <span class="c1"># General setings</span>
 <span class="nt">general</span><span class="p">:</span>
@@ -366,8 +369,8 @@ $<span class="w"> </span>tree<span class="w"> </span>iter_000000
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id2">
-<div class="code-block-caption"><span class="caption-text">input.json</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">input.json</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="p">{</span>
 <span class="w">   </span><span class="nt">&quot;_comment&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; model parameters&quot;</span><span class="p">,</span>
 <span class="w">   </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
@@ -436,8 +439,8 @@ $<span class="w"> </span>tree<span class="w"> </span>iter_000000
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id3">
-<div class="code-block-caption"><span class="caption-text">INCAR</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">INCAR</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># Global Parameters #</span>
 <span class="na">SYSTEM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">NH3BH3</span>
 <span class="na">ISTART</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0</span>
@@ -453,8 +456,8 @@ $<span class="w"> </span>tree<span class="w"> </span>iter_000000
 </pre></div>
 </div>
 </div>
-<div class="literal-block-wrapper docutils container" id="id4">
-<div class="code-block-caption"><span class="caption-text">POSCAR</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">POSCAR</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>NH3BH3
 <span class="m">1</span>.0000000000000000
 <span class="m">12</span>.0000000000000000<span class="w">    </span><span class="m">0</span>.0000000000000000<span class="w">    </span><span class="m">0</span>.0000000000000000
@@ -476,7 +479,7 @@ Direct
 </div>
 </section>
 <section id="execute-sparc">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Execute SPARC</a><a class="headerlink" href="#execute-sparc" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Execute SPARC</a><a class="headerlink" href="#execute-sparc" title="Link to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sparc<span class="w"> </span>-i<span class="w"> </span>input.yaml
 </pre></div>
 </div>
@@ -494,7 +497,7 @@ See the <a class="reference internal" href="quickstart.html#quickstart"><span cl
 </div>
 </section>
 <section id="training-ml-models">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">Training ML Models</a><a class="headerlink" href="#training-ml-models" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Training ML Models</a><a class="headerlink" href="#training-ml-models" title="Link to this heading"></a></h3>
 <p>SPARC automatically collects <em>ab initio</em> data and prepares training/validation sets. It then launches MLIP training. Depending on user settings, SPARC trains <em>n</em> models and creates separate <code class="docutils literal notranslate"><span class="pre">training_n</span></code> directories.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">input.json</span></code> file is native to the <strong>DeePMD-kit</strong> package. See the <a class="reference external" href="https://docs.deepmodeling.com/projects/deepmd/en/stable/train/train-input.html#training">DeepMD training documentation</a> for a full list of parameters.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>iter_000000/01.train/training_1
@@ -515,11 +518,11 @@ $<span class="w"> </span>less<span class="w"> </span>lcurve.out
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You can also visualize the learning process by plotting the <code class="docutils literal notranslate"><span class="pre">lcurve.out</span></code> file. See <span class="xref std std-ref">AnalysisSection</span> section.</p>
+<p>You can also visualize the learning process by plotting the <code class="docutils literal notranslate"><span class="pre">lcurve.out</span></code> file. See <a class="reference internal" href="analysis.html#analysissection"><span class="std std-ref">Analysis</span></a> section.</p>
 </div>
 </section>
 <section id="running-ml-md">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">Running ML/MD</a><a class="headerlink" href="#running-ml-md" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Running ML/MD</a><a class="headerlink" href="#running-ml-md" title="Link to this heading"></a></h3>
 <p>Once models are trained, SPARC selects one of them to initiate ML/MD simulations:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>iter_000000/02.dpmd
 $<span class="w"> </span>ls
@@ -551,7 +554,7 @@ $<span class="w"> </span>tree<span class="w"> </span>iter_000000/02.dpmd/dft_can
 </div>
 </section>
 <section id="active-learning-loop">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">Active Learning Loop</a><a class="headerlink" href="#active-learning-loop" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Active Learning Loop</a><a class="headerlink" href="#active-learning-loop" title="Link to this heading"></a></h3>
 <p>The workflow continues automatically:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iter_000001/
 ├──<span class="w"> </span><span class="m">00</span>.dft
@@ -568,7 +571,7 @@ $<span class="w"> </span>tree<span class="w"> </span>iter_000000/02.dpmd/dft_can
 </ol>
 </section>
 <section id="monitor-workflow">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">Monitor Workflow</a><a class="headerlink" href="#monitor-workflow" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Monitor Workflow</a><a class="headerlink" href="#monitor-workflow" title="Link to this heading"></a></h3>
 <p>SPARC provides utilities for monitoring the workflow. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sparc.src.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">PlotForceDeviation</span>
 <span class="n">PlotForceDeviation</span><span class="p">(</span><span class="s2">&quot;iter_000000/02.dpmd/&quot;</span><span class="p">,</span> <span class="n">iteration_window</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
@@ -586,7 +589,7 @@ $<span class="w"> </span>tree<span class="w"> </span>iter_000000/02.dpmd/dft_can
 </div>
 </section>
 <section id="plumed-plugin">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">PLUMED Plugin</a><a class="headerlink" href="#plumed-plugin" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">PLUMED Plugin</a><a class="headerlink" href="#plumed-plugin" title="Link to this heading"></a></h3>
 <p>SPARC is primarily designed to streamline the generation of training data. By using it with <strong>PLUMED</strong> plugin, standard molecular dynamics simulations can be extended beyond equilibrium sampling. This enables the ML potential to explore new regions of configurational space by applying appropriate acceleration or biasing strategies.</p>
 <p>To enable PLUMED, include the following keys in the <code class="docutils literal notranslate"><span class="pre">deepmd_setup</span></code> section of <code class="docutils literal notranslate"><span class="pre">input.yaml</span></code>:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">use_plumed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w">                   </span><span class="c1"># Set to True to run ML/MD with PLUMED</span>
@@ -597,8 +600,8 @@ $<span class="w"> </span>tree<span class="w"> </span>iter_000000/02.dpmd/dft_can
 the collective variables and biasing scheme for the NH<span class="math notranslate nohighlight">\(_3\)</span>BH<span class="math notranslate nohighlight">\(_3\)</span> system.
 See the <a class="reference external" href="https://www.plumed.org/">PLUMED documentation</a> for details on constructing
 custom CVs and bias potentials.</p>
-<div class="literal-block-wrapper docutils container" id="id5">
-<div class="code-block-caption"><span class="caption-text">plumed_dp.dat</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">plumed_dp.dat</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1"># PLUMED</span>
 <span class="na">d1</span><span class="o">:</span><span class="w"> </span><span class="s">DISTANCE ATOMS=1,8</span>
 
@@ -629,7 +632,7 @@ custom CVs and bias potentials.</p>
 </div>
 </section>
 <section id="next-step">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">Next Step</a><a class="headerlink" href="#next-step" title="Link to this heading"></a></h3>
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Next Step</a><a class="headerlink" href="#next-step" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Try replacing the system with your own molecule.</p></li>
 </ul>

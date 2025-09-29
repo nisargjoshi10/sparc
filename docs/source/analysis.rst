@@ -1,66 +1,153 @@
-.. _AnalysisSection:
-Analysis
-========
+.. _workflow_analysis:
 
-.. module:: analysis
+WorkFlow & Analysis
+===================
 
 Overview
 --------
+SPARC provides interactive modules for **workflow inspection** and **analysis** of active learning iterations.  
+These tools allow monitoring of energetic/geometric properties from MD trajectories, as well as model reliability indicators (e.g., learning curves, force deviation, uncertainty).
 
-During the execution of the active learning workflow for accelerated exploration of the phase space, 
-it is critical to monitor the training progress and predictive reliability of the machine learning potential.
-This can be achieved by systematically analyzing key indicators that reflect the current state of the model's 
-learning and generalization performance.
+The utilities are designed for **Jupyter Notebook environments**, integrating ``ipywidgets``, ``matplotlib``, and ``ASE``.
 
-To do this, a suite of specialized modules has been implemented to visualize a range of physical and 
-statistical properties. These include, but are not limited to, learning curves 
-(e.g., energy and force loss evolution), parity plots comparing predicted and reference quantities, 
-model uncertainty estimations (such as ensemble variance or deviation metrics), and physical observables 
-derived from molecular dynamics simulations (e.g., temperature fluctuations, and sample trajectory).
+--------------------
+Workflow Analysis
+--------------------
 
-Model deviation in Forces
+The workflow interface provides an interactive way to inspect outputs across multiple iterations, particularly useful for visualizing energetics and geometrical trends during training.
+
+Features
+~~~~~~~~
+- Load and visualize per-iteration properties (temperature, energy, etc.) from trajectory files.
+- Interactive widgets for selecting root directory, subfolder, trajectory, and iterations.
+- Geometry analysis tab for plotting **bond lengths** or **angles** with user-defined indices.
+
+Dependencies
+~~~~~~~~~~~~
+- numpy  
+- matplotlib  
+- ASE (Atomic Simulation Environment)  
+
+Quick Start
+~~~~~~~~~~~
+1. Launch a Jupyter Notebook.
+2. Import and run the workflow interface:
+
+.. code-block:: python
+
+    from sparc.src.utils.workflow import WorkFlowAnalysis
+    WorkFlowAnalysis()
+
+3. The interface will appear with tabs for:
+   - Temperature
+   - Total Energy
+   - Potential Energy
+   - Kinetic Energy
+   - Geometry (Bond / Angle)
+
+4. For each tab:
+   - Set the root directory containing ``iter_xxxxxx`` folders.
+   - Specify subfolder (default: ``02.dpmd``) and trajectory file (default: ``dpmd.traj``).
+   - Click *Refresh Iterations* to detect available folders.
+   - Select iterations and generate plots.
+
+Example Directory Layout
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: text
+
+    project_root/
+    ├── iter_000000/
+    │   └── 02.dpmd/
+    │       └── dpmd.traj
+    ├── iter_000001/
+    │   └── 02.dpmd/
+    │       └── dpmd.traj
+    └── iter_000002/
+        └── 02.dpmd/
+            └── dpmd.traj
+
+Geometry Tab
+~~~~~~~~~~~~
+- Choose "Bond" or "Angle" type.
+- Provide atom indices (e.g., ``0 1`` or ``0 1 2``).
+- The y-axis will render the proper chemical symbols with subscripts.
+
+Workflow
+~~~~~~~~
+
+.. automodule:: sparc.src.utils.workflow
+    :members: WorkFlowAnalysis   
+
+.. image:: ../_static/WorkflowAnalysis.gif
+    :alt: Workflow Analysis Animation
+    :width: 600px
+
+--------------------
+Advanced Analysis
+--------------------
+
+Monitoring the training progress of the ML potential requires systematic evaluation of learning and predictive reliability.  
+SPARC provides modules for analyzing **physical** and **statistical** indicators:
+
+- **Learning curves**: energy/force loss evolution.  
+- **Parity plots**: comparison of predicted vs reference quantities.  
+- **Uncertainty metrics**: ensemble variance, deviation in forces.  
+- **Physical observables**: trajectory-based properties (temperature fluctuations).
+
+..    density, RDF, etc.).  
+
+Model Deviation in Forces
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+The **model deviation** metric quantifies how much an ensemble of models disagree on predicted forces.  
+Large deviations signal regions of phase space where the model is uncertain and more training data is required.
 
-This metric tells how much different model in an ensamble ``disagree`` about the forces acting on a given atom in a specific configuration.
-A large deviation means the model is uncertain and that more training data is required in that region of phase space.
-
-
-Mathematically, the `force deviation <modeldevi_>`_  for atom :math:`i` is defined as:
+Mathematical Definition:
 
 .. math::
 
-   \epsilon_{\mathbf{F}, i}(\mathbf{x}) = \sqrt{ \frac{1}{n_m} \sum_{k=1}^{n_m} \left\| \mathbf{F}_i^{(k)} - \bar{\mathbf{F}}_i \right\|^2 }
+    \epsilon_{\mathbf{F}, i}(\mathbf{x}) = \sqrt{ \frac{1}{n_m} \sum_{k=1}^{n_m} \left\| \mathbf{F}_i^{(k)} - \bar{\mathbf{F}}_i \right\|^2 }
 
 where:
 
-- :math:`\mathbf{F}_i^{(k)}` is the force on atom :math:`i` predicted by model :math:`k`,
-- :math:`\bar{\mathbf{F}}_i = \frac{1}{n_m} \sum_{k=1}^{n_m} \mathbf{F}_i^{(k)}` is the average force over all models,
-- :math:`n_m` is the number of models in the ensemble,
-- and :math:`\| \cdot \|` is the Euclidean norm.
+- :math:`\mathbf{F}_i^{(k)}` = force on atom :math:`i` from model :math:`k`  
+- :math:`\bar{\mathbf{F}}_i = \frac{1}{n_m} \sum_{k=1}^{n_m} \mathbf{F}_i^{(k)}` = ensemble average force  
+- :math:`n_m` = number of models in the ensemble  
+- :math:`\|\cdot\|` = Euclidean norm  
 
-In simple terms:
+.. **In practice:**
 
-1. Predict the force on atom :math:`i` using multiple models.
-2. Compute the average force.
-3. Measure how much each model's prediction deviates from the average.
-4. Compute the root mean square of those deviations.
+.. 1. Predict forces using multiple models.  
+.. 2. Compute the ensemble average.  
+.. 3. Measure deviations from the average.  
+.. 4. Take RMS of deviations.  
 
-This value quantifies how much the models **disagree** about the force, serving as a proxy for uncertainty.
+.. This serves as a **proxy for uncertainty**.
 
 .. _modeldevi: https://docs.deepmodeling.com/projects/deepmd/en/master/test/model-deviation.html
 
-Function:
-~~~~~~~~~
-
-.. autofunction:: sparc.src.utils.plot_utils.PlotForceDeviation
-
 .. image:: images/model_devi.jpg
-   :alt: Visualization of force model deviation
-   :align: center
-   :width: 700px
-   :target: _static/model_devi.jpg
+    :alt: Visualization of force model deviation
+    :align: center
+    :width: 700px
+    :target: ../_static/model_devi.jpg
+
+
+--------------------
+Example Notebooks
+--------------------
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 1
 
-   notebooks/analysisAmmoniaBorate.ipynb
+    notebooks/analysisAmmoniaBorate.ipynb
+
+--------------------
+API References
+--------------------
+
+.. .. autofunction:: sparc.src.utils.plot_utils.PlotForceDeviation
+
+.. automodule:: sparc.src.utils.plot_utils
+    :members: PlotForceDeviation, PlotLcurve, PlotPotentialEnergy, PlotDistribution, PlotPES, PlotTemp, ViewTraj
+

@@ -22,10 +22,6 @@
     <link rel="search" title="Search" href="search.html" />
  
 
-    <script>
-      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
-    </script>
-
 
 </head>
 
@@ -165,27 +161,36 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">WorkFlow &amp; Analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="analysis.html#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="analysis.html#model-deviation-in-forces">Model deviation in Forces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="analysis.html#function">Function:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#id2">Workflow Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#features">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#quick-start">Quick Start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#example-directory-layout">Example Directory Layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#geometry-tab">Geometry Tab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#module-sparc.src.utils.workflow">Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#advanced-analysis">Advanced Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#model-deviation-in-forces">Model Deviation in Forces</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#example-notebooks">Example Notebooks</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#api-references">API References</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotDistribution"><code class="docutils literal notranslate"><span class="pre">PlotDistribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotLcurve"><code class="docutils literal notranslate"><span class="pre">PlotLcurve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotPES"><code class="docutils literal notranslate"><span class="pre">PlotPES()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotPotentialEnergy"><code class="docutils literal notranslate"><span class="pre">PlotPotentialEnergy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotTemp"><code class="docutils literal notranslate"><span class="pre">PlotTemp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.ViewTraj"><code class="docutils literal notranslate"><span class="pre">ViewTraj()</span></code></a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#function">Function:</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#sparc.src.utils.workflow.WorkFlowAnalysis"><code class="docutils literal notranslate"><span class="pre">WorkFlowAnalysis()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#features">Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#dependencies">Dependencies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#quick-start">Quick Start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#example-directory-structure">Example Directory Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#geometry-tab-details">Geometry Tab Details</a></li>
 </ul>
 </li>
 </ul>
@@ -233,7 +238,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="analysis.html#module-analysis"><code class="xref">analysis</code></a></td><td>
+       <a href="oldanalysis.html#module-analysis"><code class="xref">analysis</code></a></td><td>
        <em></em></td></tr>
      <tr>
        <td></td>
@@ -279,6 +284,16 @@
        <td></td>
        <td>&#160;&#160;&#160;
        <a href="deepmd.html#module-0"><code class="xref">sparc.src.deepmd</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="analysis.html#module-sparc.src.utils.plot_utils"><code class="xref">sparc.src.utils.plot_utils</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-1">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="analysis.html#module-sparc.src.utils.workflow"><code class="xref">sparc.src.utils.workflow</code></a></td><td>
        <em></em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-t"><td></td><td>

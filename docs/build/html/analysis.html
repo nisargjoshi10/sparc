@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analysis &mdash; SPARC 0.1.0 documentation</title>
+  <title>WorkFlow &amp; Analysis &mdash; SPARC 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f7b18df9" />
@@ -23,8 +23,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="[1] Workflow Analysis" href="notebooks/analysisAmmoniaBorate.html" />
-    <link rel="prev" title="Tutorial" href="tutorial.html" /> 
+    <link rel="prev" title="[1] Workflow Analysis" href="notebooks/analysisAmmoniaBorate.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -148,38 +147,51 @@
 <li class="toctree-l2"><a class="reference internal" href="tutorial.html#ammonia-borate-nh-3bh-3">Ammonia Borate (NH<span class="math notranslate nohighlight">\(_3\)</span>BH<span class="math notranslate nohighlight">\(_3\)</span>)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="tutorial.html#introduction">Introduction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tutorial.html#preparation">Preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#execute-sparc">Execute SPARC</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tutorial.html#training-ml-models">Training ML Models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tutorial.html#running-ml-md">Running ML/MD</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#monitoring-model-deviation">Monitoring Model Deviation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tutorial.html#active-learning-loop">Active Learning Loop</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#enhanced-sampling">Enhanced Sampling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#model-deviation-in-forces">Model deviation in Forces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#function">Function:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#monitor-workflow">Monitor Workflow</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#plumed-plugin">PLUMED Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#next-step">Next Step</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#function">Function:</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#sparc.src.utils.workflow.WorkFlowAnalysis"><code class="docutils literal notranslate"><span class="pre">WorkFlowAnalysis()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#features">Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#dependencies">Dependencies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#quick-start">Quick Start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#example-directory-structure">Example Directory Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#geometry-tab-details">Geometry Tab Details</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WorkFlow &amp; Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Workflow Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-directory-layout">Example Directory Layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geometry-tab">Geometry Tab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-sparc.src.utils.workflow">Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-analysis">Advanced Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#model-deviation-in-forces">Model Deviation in Forces</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-notebooks">Example Notebooks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#api-references">API References</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sparc.src.utils.plot_utils.PlotDistribution"><code class="docutils literal notranslate"><span class="pre">PlotDistribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sparc.src.utils.plot_utils.PlotLcurve"><code class="docutils literal notranslate"><span class="pre">PlotLcurve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sparc.src.utils.plot_utils.PlotPES"><code class="docutils literal notranslate"><span class="pre">PlotPES()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sparc.src.utils.plot_utils.PlotPotentialEnergy"><code class="docutils literal notranslate"><span class="pre">PlotPotentialEnergy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sparc.src.utils.plot_utils.PlotTemp"><code class="docutils literal notranslate"><span class="pre">PlotTemp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sparc.src.utils.plot_utils.ViewTraj"><code class="docutils literal notranslate"><span class="pre">ViewTraj()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -200,7 +212,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Analysis</li>
+      <li class="breadcrumb-item active">WorkFlow &amp; Analysis</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/analysis.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -210,44 +222,198 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-analysis">
-<span id="analysis"></span><span id="analysissection"></span><h1>Analysis<a class="headerlink" href="#module-analysis" title="Link to this heading"></a></h1>
+  <section id="workflow-analysis">
+<span id="id1"></span><h1>WorkFlow &amp; Analysis<a class="headerlink" href="#workflow-analysis" title="Link to this heading"></a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
-<p>During the execution of the active learning workflow for accelerated exploration of the phase space,
-it is critical to monitor the training progress and predictive reliability of the machine learning potential.
-This can be achieved by systematically analyzing key indicators that reflect the current state of the model’s
-learning and generalization performance.</p>
-<p>To do this, a suite of specialized modules has been implemented to visualize a range of physical and
-statistical properties. These include, but are not limited to, learning curves
-(e.g., energy and force loss evolution), parity plots comparing predicted and reference quantities,
-model uncertainty estimations (such as ensemble variance or deviation metrics), and physical observables
-derived from molecular dynamics simulations (e.g., temperature fluctuations, and sample trajectory).</p>
+<p>SPARC provides interactive modules for <strong>workflow inspection</strong> and <strong>analysis</strong> of active learning iterations.
+These tools allow monitoring of energetic/geometric properties from MD trajectories, as well as model reliability indicators (e.g., learning curves, force deviation, uncertainty).</p>
+<p>The utilities are designed for <strong>Jupyter Notebook environments</strong>, integrating <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, and <code class="docutils literal notranslate"><span class="pre">ASE</span></code>.</p>
+<section id="id2">
+<h3>Workflow Analysis<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>The workflow interface provides an interactive way to inspect outputs across multiple iterations, particularly useful for visualizing energetics and geometrical trends during training.</p>
+<section id="features">
+<h4>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Load and visualize per-iteration properties (temperature, energy, etc.) from trajectory files.</p></li>
+<li><p>Interactive widgets for selecting root directory, subfolder, trajectory, and iterations.</p></li>
+<li><p>Geometry analysis tab for plotting <strong>bond lengths</strong> or <strong>angles</strong> with user-defined indices.</p></li>
+</ul>
+</section>
+<section id="dependencies">
+<h4>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>numpy</p></li>
+<li><p>matplotlib</p></li>
+<li><p>ASE (Atomic Simulation Environment)</p></li>
+</ul>
+</section>
+<section id="quick-start">
+<h4>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Launch a Jupyter Notebook.</p></li>
+<li><p>Import and run the workflow interface:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sparc.src.utils.workflow</span><span class="w"> </span><span class="kn">import</span> <span class="n">WorkFlowAnalysis</span>
+<span class="n">WorkFlowAnalysis</span><span class="p">()</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>The interface will appear with tabs for:
+- Temperature
+- Total Energy
+- Potential Energy
+- Kinetic Energy
+- Geometry (Bond / Angle)</p></li>
+<li><p>For each tab:
+- Set the root directory containing <code class="docutils literal notranslate"><span class="pre">iter_xxxxxx</span></code> folders.
+- Specify subfolder (default: <code class="docutils literal notranslate"><span class="pre">02.dpmd</span></code>) and trajectory file (default: <code class="docutils literal notranslate"><span class="pre">dpmd.traj</span></code>).
+- Click <em>Refresh Iterations</em> to detect available folders.
+- Select iterations and generate plots.</p></li>
+</ol>
+</section>
+<section id="example-directory-layout">
+<h4>Example Directory Layout<a class="headerlink" href="#example-directory-layout" title="Link to this heading"></a></h4>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>project_root/
+├── iter_000000/
+│   └── 02.dpmd/
+│       └── dpmd.traj
+├── iter_000001/
+│   └── 02.dpmd/
+│       └── dpmd.traj
+└── iter_000002/
+    └── 02.dpmd/
+        └── dpmd.traj
+</pre></div>
+</div>
+</section>
+<section id="geometry-tab">
+<h4>Geometry Tab<a class="headerlink" href="#geometry-tab" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Choose “Bond” or “Angle” type.</p></li>
+<li><p>Provide atom indices (e.g., <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">1</span> <span class="pre">2</span></code>).</p></li>
+<li><p>The y-axis will render the proper chemical symbols with subscripts.</p></li>
+</ul>
+</section>
+<section id="module-sparc.src.utils.workflow">
+<span id="workflow"></span><h4>Workflow<a class="headerlink" href="#module-sparc.src.utils.workflow" title="Link to this heading"></a></h4>
+<dl class="py function">
+<dt class="sig sig-object py" id="sparc.src.utils.workflow.WorkFlowAnalysis">
+<span class="sig-prename descclassname"><span class="pre">sparc.src.utils.workflow.</span></span><span class="sig-name descname"><span class="pre">WorkFlowAnalysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/utils/workflow.html#WorkFlowAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.utils.workflow.WorkFlowAnalysis" title="Link to this definition"></a></dt>
+<dd><p>Interactive analysis and visualization tools for monitoring molecular dynamics
+simulations across multiple active learning iterations. Provides utilities for
+loading trajectory data, extracting physical properties, and creating plots
+with Jupyter widget interfaces.</p>
+<section id="main-features">
+<h5>Main Features<a class="headerlink" href="#main-features" title="Link to this heading"></a></h5>
+<ul class="simple">
+<li><p>Scan and load iteration folders with trajectory files.</p></li>
+<li><p>Plot temperature, energies, and user-defined geometric quantities.</p></li>
+<li><p>Interactive Jupyter widgets for selecting iterations, trajectory files, and plotting results.</p></li>
+<li><p>Geometry tab for analyzing bond lengths, angles, and dihedrals.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h5>Dependencies<a class="headerlink" href="#id3" title="Link to this heading"></a></h5>
+<ul class="simple">
+<li><p>numpy</p></li>
+<li><p>matplotlib</p></li>
+<li><p>ase (Atomic Simulation Environment)</p></li>
+<li><p>ipywidgets</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<a class="reference internal image-reference" href="_images/WorkflowAnalysis.gif"><img alt="Workflow Analysis Animation" src="_images/WorkflowAnalysis.gif" style="width: 600px;" />
+</a>
+</section>
+</section>
+<section id="advanced-analysis">
+<h3>Advanced Analysis<a class="headerlink" href="#advanced-analysis" title="Link to this heading"></a></h3>
+<p>Monitoring the training progress of the ML potential requires systematic evaluation of learning and predictive reliability.
+SPARC provides modules for analyzing <strong>physical</strong> and <strong>statistical</strong> indicators:</p>
+<ul class="simple">
+<li><p><strong>Learning curves</strong>: energy/force loss evolution.</p></li>
+<li><p><strong>Parity plots</strong>: comparison of predicted vs reference quantities.</p></li>
+<li><p><strong>Uncertainty metrics</strong>: ensemble variance, deviation in forces.</p></li>
+<li><p><strong>Physical observables</strong>: trajectory-based properties (temperature fluctuations).</p></li>
+</ul>
 <section id="model-deviation-in-forces">
-<h3>Model deviation in Forces<a class="headerlink" href="#model-deviation-in-forces" title="Link to this heading"></a></h3>
-<p>This metric tells how much different model in an ensamble <code class="docutils literal notranslate"><span class="pre">disagree</span></code> about the forces acting on a given atom in a specific configuration.
-A large deviation means the model is uncertain and that more training data is required in that region of phase space.</p>
-<p>Mathematically, the <a class="reference external" href="https://docs.deepmodeling.com/projects/deepmd/en/master/test/model-deviation.html">force deviation</a>  for atom <span class="math notranslate nohighlight">\(i\)</span> is defined as:</p>
+<h4>Model Deviation in Forces<a class="headerlink" href="#model-deviation-in-forces" title="Link to this heading"></a></h4>
+<p>The <strong>model deviation</strong> metric quantifies how much an ensemble of models disagree on predicted forces.
+Large deviations signal regions of phase space where the model is uncertain and more training data is required.</p>
+<p>Mathematical Definition:</p>
 <div class="math notranslate nohighlight">
 \[\epsilon_{\mathbf{F}, i}(\mathbf{x}) = \sqrt{ \frac{1}{n_m} \sum_{k=1}^{n_m} \left\| \mathbf{F}_i^{(k)} - \bar{\mathbf{F}}_i \right\|^2 }\]</div>
 <p>where:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbf{F}_i^{(k)}\)</span> is the force on atom <span class="math notranslate nohighlight">\(i\)</span> predicted by model <span class="math notranslate nohighlight">\(k\)</span>,</p></li>
-<li><p><span class="math notranslate nohighlight">\(\bar{\mathbf{F}}_i = \frac{1}{n_m} \sum_{k=1}^{n_m} \mathbf{F}_i^{(k)}\)</span> is the average force over all models,</p></li>
-<li><p><span class="math notranslate nohighlight">\(n_m\)</span> is the number of models in the ensemble,</p></li>
-<li><p>and <span class="math notranslate nohighlight">\(\| \cdot \|\)</span> is the Euclidean norm.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{F}_i^{(k)}\)</span> = force on atom <span class="math notranslate nohighlight">\(i\)</span> from model <span class="math notranslate nohighlight">\(k\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\bar{\mathbf{F}}_i = \frac{1}{n_m} \sum_{k=1}^{n_m} \mathbf{F}_i^{(k)}\)</span> = ensemble average force</p></li>
+<li><p><span class="math notranslate nohighlight">\(n_m\)</span> = number of models in the ensemble</p></li>
+<li><p><span class="math notranslate nohighlight">\(\|\cdot\|\)</span> = Euclidean norm</p></li>
 </ul>
-<p>In simple terms:</p>
-<ol class="arabic simple">
-<li><p>Predict the force on atom <span class="math notranslate nohighlight">\(i\)</span> using multiple models.</p></li>
-<li><p>Compute the average force.</p></li>
-<li><p>Measure how much each model’s prediction deviates from the average.</p></li>
-<li><p>Compute the root mean square of those deviations.</p></li>
-</ol>
-<p>This value quantifies how much the models <strong>disagree</strong> about the force, serving as a proxy for uncertainty.</p>
+<a class="reference external image-reference" href="../_static/model_devi.jpg"><img alt="Visualization of force model deviation" class="align-center" src="_images/model_devi.jpg" style="width: 700px;" />
+</a>
 </section>
-<section id="function">
-<h3>Function:<a class="headerlink" href="#function" title="Link to this heading"></a></h3>
+</section>
+<section id="example-notebooks">
+<h3>Example Notebooks<a class="headerlink" href="#example-notebooks" title="Link to this heading"></a></h3>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
+</ul>
+</div>
+</section>
+<section id="api-references">
+<h3>API References<a class="headerlink" href="#api-references" title="Link to this heading"></a></h3>
+<dl class="py function" id="module-sparc.src.utils.plot_utils">
+<dt class="sig sig-object py" id="sparc.src.utils.plot_utils.PlotDistribution">
+<span class="sig-prename descclassname"><span class="pre">sparc.src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">PlotDistribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_iteration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'AseMD.traj'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'line'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'energy'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/utils/plot_utils.html#PlotDistribution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.utils.plot_utils.PlotDistribution" title="Link to this definition"></a></dt>
+<dd><p>Plot potential energy or bond distance from ASE trajectories across iter_* folders.</p>
+<p>This function reads trajectory files (e.g., AseMD.traj) inside <cite>00.dft</cite> folders located within iter_*
+directories, extracts either potential energy or bond distance over time, and visualizes them using
+line plots, KDE plots, or histograms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Root directory containing iter_* folders. Default is current directory.</p></li>
+<li><p><strong>iteration_window</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><em>tuple</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – (start, end) tuple to specify a range of iterations, or “all”.</p></li>
+<li><p><strong>target_iteration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – A specific iteration to analyze. Overrides iteration_window if given.</p></li>
+<li><p><strong>traj_filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Name of the ASE-readable trajectory file (default: “AseMD.traj”).</p></li>
+<li><p><strong>type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Type of plot to generate:
+- ‘line’: property vs. frame index
+- ‘kde’ : kernel density estimate
+- ‘hist’: histogram of property values</p></li>
+<li><p><strong>get</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – What property to extract:
+- “energy” : uses get_potential_energy()
+- “distance:i,j” : uses get_distance(i, j) between atoms i and j</p></li>
+<li><p><strong>**kwargs</strong> – <p>Additional keyword arguments forwarded to the underlying matplotlib/seaborn plotting calls.
+Common kwargs include:</p>
+<blockquote>
+<div><p>color, linestyle, linewidth, marker, alpha, bins, fill, edgecolor, etc.</p>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>Example usage:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Default plot: potential energy across all iterations as a line plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">PlotDistribution</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Explicit energy line plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">PlotDistribution</span><span class="p">(</span><span class="n">get</span><span class="o">=</span><span class="s2">&quot;energy&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Bond distance between atoms 0 and 7 as KDE</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">PlotDistribution</span><span class="p">(</span><span class="n">get</span><span class="o">=</span><span class="s2">&quot;distance:0,7&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Histogram of energies from iteration 3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">PlotDistribution</span><span class="p">(</span><span class="n">target_iteration</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">get</span><span class="o">=</span><span class="s2">&quot;energy&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Customized markers for energy plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">PlotDistribution</span><span class="p">(</span><span class="n">get</span><span class="o">=</span><span class="s2">&quot;energy&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py function">
 <dt class="sig sig-object py" id="sparc.src.utils.plot_utils.PlotForceDeviation">
 <span class="sig-prename descclassname"><span class="pre">sparc.src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">PlotForceDeviation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_iteration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/utils/plot_utils.html#PlotForceDeviation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.utils.plot_utils.PlotForceDeviation" title="Link to this definition"></a></dt>
@@ -272,14 +438,125 @@ extracts max force deviation, and plots the results.</p>
 </div>
 </dd></dl>
 
-<a class="reference external image-reference" href="_static/model_devi.jpg"><img alt="Visualization of force model deviation" class="align-center" src="_images/model_devi.jpg" style="width: 700px;" />
-</a>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
-</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="sparc.src.utils.plot_utils.PlotLcurve">
+<span class="sig-prename descclassname"><span class="pre">sparc.src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">PlotLcurve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lcurve_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_fig</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/utils/plot_utils.html#PlotLcurve"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.utils.plot_utils.PlotLcurve" title="Link to this definition"></a></dt>
+<dd><p>Plots the learning curve (L-curve) from DeepMD training log.</p>
+<section id="parameters">
+<h4>Parameters:<a class="headerlink" href="#parameters" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>lcurve_file<span class="classifier">str</span></dt><dd><p>Path to lcurve.out file.</p>
+</dd>
+<dt>save_fig<span class="classifier">str or None</span></dt><dd><p>If provided, path to save the figure (e.g., “lcurve.png”).</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">PlotLcurve</span><span class="p">(</span><span class="n">lcurve_file</span><span class="o">=</span><span class="s2">&quot;iter_000000/01.train/training_1/lcurve.out&quot;</span><span class="p">)</span>
+</pre></div>
 </div>
+</section>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sparc.src.utils.plot_utils.PlotPES">
+<span class="sig-prename descclassname"><span class="pre">sparc.src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">PlotPES</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_iteration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'AseMD.traj'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_pair</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">7)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'kde'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(50,</span> <span class="pre">50)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/utils/plot_utils.html#PlotPES"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.utils.plot_utils.PlotPES" title="Link to this definition"></a></dt>
+<dd><p>Plot energy vs. bond distance across trajectories as a 2D KDE, heatmap, or hexbin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Root directory containing iter_* folders.</p></li>
+<li><p><strong>iteration_window</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><em>tuple</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – (start, end) or “all”.</p></li>
+<li><p><strong>target_iteration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – A specific iteration to analyze.</p></li>
+<li><p><strong>traj_filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – ASE-readable trajectory file inside 00.dft folders.</p></li>
+<li><p><strong>distance_pair</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><em>tuple</em></a>) – Atom indices (i, j) for bond distance calculation.</p></li>
+<li><p><strong>type</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – “kde”, “heatmap”, or “hexbin”.</p></li>
+<li><p><strong>bins</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><em>tuple</em></a>) – Number of bins for heatmap/hexbin (x, y or just x).</p></li>
+<li><p><strong>**kwargs</strong> – Extra kwargs forwarded to seaborn/matplotlib functions.</p></li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dt>Example usage:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Default KDE plot of energy vs. bond distance between atoms 0 and 7</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">PlotPES</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Hexbin plot with custom bin count</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">PlotPES</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hexbin&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Heatmap from a specific iteration</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">PlotPES</span><span class="p">(</span><span class="n">target_iteration</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;heatmap&quot;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># KDE plot with a custom colormap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">PlotPES</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;mako&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sparc.src.utils.plot_utils.PlotPotentialEnergy">
+<span class="sig-prename descclassname"><span class="pre">sparc.src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">PlotPotentialEnergy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_iteration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'AseMD.traj'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/utils/plot_utils.html#PlotPotentialEnergy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.utils.plot_utils.PlotPotentialEnergy" title="Link to this definition"></a></dt>
+<dd><p>Parses trajectory files from iter_* directories (or a specific range/iteration/all),
+extracts potential energy, and plots the results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Root directory containing iter_* folders.</p></li>
+<li><p><strong>iteration_window</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><em>tuple</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – A tuple (start, end) to specify a range of iterations, or “all” to process all iterations.</p></li>
+<li><p><strong>target_iteration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – A specific iteration number to analyze.</p></li>
+<li><p><strong>traj_filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Name of the trajectory file to read in each iteration folder (default: “dpmd.traj”).</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plot_potential_energy</span><span class="p">(</span><span class="s2">&quot;/path/to/root&quot;</span><span class="p">,</span> <span class="n">iteration_window</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">traj_filename</span><span class="o">=</span><span class="s2">&quot;AseMD.traj&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot_potential_energy</span><span class="p">(</span><span class="s2">&quot;/path/to/root&quot;</span><span class="p">,</span> <span class="n">target_iteration</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">traj_filename</span><span class="o">=</span><span class="s2">&quot;AseMD.traj&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot_potential_energy</span><span class="p">(</span><span class="s2">&quot;/path/to/root&quot;</span><span class="p">,</span> <span class="n">iteration_window</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">traj_filename</span><span class="o">=</span><span class="s2">&quot;AseMD.traj&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sparc.src.utils.plot_utils.PlotTemp">
+<span class="sig-prename descclassname"><span class="pre">sparc.src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">PlotTemp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_iteration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">traj_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dpmd.traj'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/utils/plot_utils.html#PlotTemp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.utils.plot_utils.PlotTemp" title="Link to this definition"></a></dt>
+<dd><p>Parses trajectory files from iter_* directories (or a specific range/iteration/all),
+extracts temperature, and plots the results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Root directory containing iter_* folders.</p></li>
+<li><p><strong>iteration_window</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><em>tuple</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – A tuple (start, end) to specify a range of iterations, or “all” to process all iterations.</p></li>
+<li><p><strong>target_iteration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><em>int</em></a>) – A specific iteration number to analyze.</p></li>
+<li><p><strong>traj_filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Name of the trajectory file to read in each iteration folder.</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plot_temperature</span><span class="p">(</span><span class="s2">&quot;/path/to/root&quot;</span><span class="p">,</span> <span class="n">iteration_window</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">traj_filename</span><span class="o">=</span><span class="s2">&quot;dpmd.traj&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot_temperature</span><span class="p">(</span><span class="s2">&quot;/path/to/root&quot;</span><span class="p">,</span> <span class="n">target_iteration</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">traj_filename</span><span class="o">=</span><span class="s2">&quot;dpmd.traj&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plot_temperature</span><span class="p">(</span><span class="s2">&quot;/path/to/root&quot;</span><span class="p">,</span> <span class="n">iteration_window</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">traj_filename</span><span class="o">=</span><span class="s2">&quot;dpmd.traj&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sparc.src.utils.plot_utils.ViewTraj">
+<span class="sig-prename descclassname"><span class="pre">sparc.src.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">ViewTraj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ball_and_stick'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'white'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/utils/plot_utils.html#ViewTraj"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.utils.plot_utils.ViewTraj" title="Link to this definition"></a></dt>
+<dd><p>Returns an interactive nglview widget with custom styling for a given ASE trajectory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>traj</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em> of </em><a class="reference external" href="https://ase-lib.org/ase/atoms.html#ase.Atoms" title="(in ASE)"><em>ase.Atoms</em></a><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – A trajectory (list of ASE Atoms) or a file path.</p></li>
+<li><p><strong>style</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Representation style (e.g., ‘ball_and_stick’, ‘spacefill’, ‘licorice’).</p></li>
+<li><p><strong>background</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Viewer background color.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Configured NGL viewer widget.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>nglview.NGLWidget</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 </section>
@@ -288,8 +565,7 @@ extracts max force deviation, and plots the results.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="tutorial.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="notebooks/analysisAmmoniaBorate.html" class="btn btn-neutral float-right" title="[1] Workflow Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="notebooks/analysisAmmoniaBorate.html" class="btn btn-neutral float-left" title="[1] Workflow Analysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

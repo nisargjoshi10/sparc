@@ -1,12 +1,7 @@
-Workflow
+.. _workflow:
+
+WorkFlow
 ========
-
-
-Function:
-~~~~~~~~~
-
-.. autofunction:: sparc.src.utils.workflow.WorkFlowAnalysis
-
 
 This Python module provides an interactive interface for analyzing workflow outputs across multiple iterations. 
 The script is especially useful for to inspect energetics and geometric properties over training iterations.
@@ -68,14 +63,27 @@ Example Directory Structure
            └── dpmd.traj
 
 Geometry Tab Details
----------------------
+--------------------
 - Choose "Bond" or "Angle" type.
 - Provide indices for atoms (e.g., `0 1` or `0 1 2`).
 - The y-axis label will automatically render the proper bond/angle symbols with subscripts.
 
 
-.. image:: _static/WorkflowAnalysis.gif
+.. image:: ../_static/WorkflowAnalysis.gif
    :alt: Workflow Analysis Animation
    :width: 600px
 
 
+API Reference:
+--------------
+
+.. automodule:: sparc.src.utils.workflow
+   :members: WorkFlowAnalysis
+
+.. .. automodule:: sparc.src.utils.workflow
+..    :members: WorkFlowAnalysis
+..    :exclude-members: 
+..    :undoc-members:
+..    :show-inheritance:   
+
+.. .. autofunction:: sparc.src.utils.workflow.WorkFlowAnalysis

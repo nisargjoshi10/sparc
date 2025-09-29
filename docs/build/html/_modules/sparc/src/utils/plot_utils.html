@@ -74,28 +74,37 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../calculator.html">DFT Calculator</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../calculator.html#class-setupdftcalculator">Class : SetupDFTCalculator</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../calculator.html#function">function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../calculator.html#vasp">VASP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../calculator.html#cp2k">CP2K</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../calculator.html#sparc.src.calculator.SetupDFTCalculator"><code class="docutils literal notranslate"><span class="pre">SetupDFTCalculator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../calculator.html#sparc.src.calculator.dft_calculator"><code class="docutils literal notranslate"><span class="pre">dft_calculator()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../calculator.html#example-use">Example Use:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../deepmd.html">DeepMD Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../deepmd.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../deepmd.html#usage-example">Usage Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../deepmd.html#module-contents">Module Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../deepmd.html">DeePMD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../deepmd.html#sparc.src.deepmd.setup_DeepPotential"><code class="docutils literal notranslate"><span class="pre">setup_DeepPotential()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../deepmd.html#example-evaluate-a-frozen-model">Example: Evaluate a Frozen Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../deepmd.html#sparc.src.deepmd.evaluate_model_accuracy"><code class="docutils literal notranslate"><span class="pre">evaluate_model_accuracy()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../deepmd.html#references">References</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../md.html">Molecular Dynamics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../md.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../md.html#features">Features:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../md.html#module-contents">Module Contents</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../md.html#functions">Functions:</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../md.html#sparc.src.ase_md.NoseNVT"><code class="docutils literal notranslate"><span class="pre">NoseNVT()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../md.html#sparc.src.ase_md.LangevinNVT"><code class="docutils literal notranslate"><span class="pre">LangevinNVT()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../md.html#usage-examples">Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../md.html#simulation-outputs">Simulation Outputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../md.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../md.html#sparc.src.ase_md.NoseNVT"><code class="docutils literal notranslate"><span class="pre">NoseNVT()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../md.html#sparc.src.ase_md.LangevinNVT"><code class="docutils literal notranslate"><span class="pre">LangevinNVT()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../md.html#sparc.src.ase_md.ExecuteAbInitioDynamics"><code class="docutils literal notranslate"><span class="pre">ExecuteAbInitioDynamics()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../md.html#references">References</a></li>
 </ul>
 </li>
@@ -107,35 +116,71 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../plumed_wrapper.html">Plumed</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../plumed_wrapper.html#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../plumed_wrapper.html#sparc.src.plumed_wrapper.modify_forces"><code class="docutils literal notranslate"><span class="pre">modify_forces()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../plumed_wrapper.html#sparc.src.plumed_wrapper.umbrella"><code class="docutils literal notranslate"><span class="pre">umbrella()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../plumed_wrapper.html">Plumed Integtation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plumed_wrapper.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plumed_wrapper.html#sprint-collective-variable">SPRINT Collective Variable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plumed_wrapper.html#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../plumed_wrapper.html#sparc.src.plumed_wrapper.modify_forces"><code class="docutils literal notranslate"><span class="pre">modify_forces()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../analysis.html">Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../analysis.html#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../analysis.html#model-deviation-in-forces">Model deviation in Forces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../analysis.html#function">Function:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plumed_wrapper.html#umbrella-sampling-in-sparc">Umbrella Sampling in SPARC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plumed_wrapper.html#yaml-settings-for-umbrella-sampling">YAML Settings for Umbrella Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plumed_wrapper.html#folder-layout-example">Folder Layout Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plumed_wrapper.html#example-plumed-file">Example PLUMED File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../plumed_wrapper.html#output">Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../plumed_wrapper.html#id1">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../plumed_wrapper.html#sparc.src.plumed_wrapper.umbrella"><code class="docutils literal notranslate"><span class="pre">umbrella()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../plumed_wrapper.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../tutorial.html#ammonia-borate-nh-3bh-3">Ammonia Borate (NH<span class="math notranslate nohighlight">\(_3\)</span>BH<span class="math notranslate nohighlight">\(_3\)</span>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorial.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorial.html#preparation">Preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorial.html#execute-sparc">Execute SPARC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorial.html#training-ml-models">Training ML Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorial.html#running-ml-md">Running ML/MD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorial.html#active-learning-loop">Active Learning Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorial.html#monitor-workflow">Monitor Workflow</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorial.html#plumed-plugin">PLUMED Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../tutorial.html#next-step">Next Step</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../workflow.html">Workflow</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../workflow.html#function">Function:</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../workflow.html#sparc.src.utils.workflow.WorkFlowAnalysis"><code class="docutils literal notranslate"><span class="pre">WorkFlowAnalysis()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../workflow.html#features">Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../workflow.html#dependencies">Dependencies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../workflow.html#quick-start">Quick Start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../workflow.html#example-directory-structure">Example Directory Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../workflow.html#geometry-tab-details">Geometry Tab Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../analysis.html">WorkFlow &amp; Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../analysis.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../analysis.html#id2">Workflow Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../analysis.html#features">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../analysis.html#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../analysis.html#quick-start">Quick Start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../analysis.html#example-directory-layout">Example Directory Layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../analysis.html#geometry-tab">Geometry Tab</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../analysis.html#advanced-analysis">Advanced Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../analysis.html#model-deviation-in-forces">Model Deviation in Forces</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../analysis.html#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../analysis.html#module-sparc.src.utils.workflow">Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../analysis.html#example-notebooks">Example Notebooks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -307,6 +352,8 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
+<div class="viewcode-block" id="PlotLcurve">
+<a class="viewcode-back" href="../../../../analysis.html#sparc.src.utils.plot_utils.PlotLcurve">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">PlotLcurve</span><span class="p">(</span><span class="n">lcurve_file</span><span class="p">,</span> <span class="n">save_fig</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plots the learning curve (L-curve) from DeepMD training log.</span>
@@ -355,13 +402,14 @@
         <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save_fig</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[ANALYSIS][INFO] Saved learning curve plot to: </span><span class="si">{</span><span class="n">save_fig</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
         
 <span class="c1">########################################################################################################</span>
 <span class="c1"># Plot error in Forces from various DeepMD models</span>
 <span class="c1">########################################################################################################</span>
 <div class="viewcode-block" id="PlotForceDeviation">
-<a class="viewcode-back" href="../../../../analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation">[docs]</a>
+<a class="viewcode-back" href="../../../../oldanalysis.html#sparc.src.utils.plot_utils.PlotForceDeviation">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">PlotForceDeviation</span><span class="p">(</span><span class="n">root_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">iteration_window</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">target_iteration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dmin</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">dmax</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parses model_dev_*.out files from iter_* directories (or a specific range/iteration/all),</span>
@@ -456,6 +504,8 @@
 <span class="c1"># Plot Potential energy from Labelles candidates</span>
 <span class="c1">########################################################################################################</span>
 
+<div class="viewcode-block" id="PlotPotentialEnergy">
+<a class="viewcode-back" href="../../../../analysis.html#sparc.src.utils.plot_utils.PlotPotentialEnergy">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">PlotPotentialEnergy</span><span class="p">(</span><span class="n">root_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">iteration_window</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="n">target_iteration</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">traj_filename</span><span class="o">=</span><span class="s2">&quot;AseMD.traj&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Parses trajectory files from iter_* directories (or a specific range/iteration/all),</span>
@@ -532,7 +582,8 @@
     <span class="c1"># Legend</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="n">ncol</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
 
 <span class="c1">########################################################################################################</span>
 <span class="c1"># Plot Distribution of Properties</span>
@@ -543,6 +594,8 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">ase.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
+<div class="viewcode-block" id="PlotDistribution">
+<a class="viewcode-back" href="../../../../analysis.html#sparc.src.utils.plot_utils.PlotDistribution">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">PlotDistribution</span><span class="p">(</span>
     <span class="n">root_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
     <span class="n">iteration_window</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
@@ -577,20 +630,16 @@
 <span class="sd">                      color, linestyle, linewidth, marker, alpha, bins, fill, edgecolor, etc.</span>
 
 <span class="sd">    Example usage:</span>
-<span class="sd">        # Default plot: potential energy across all iterations as a line plot</span>
-<span class="sd">        PlotDistribution()</span>
-
-<span class="sd">        # Explicit energy line plot</span>
-<span class="sd">        PlotDistribution(get=&quot;energy&quot;, type=&quot;line&quot;)</span>
-
-<span class="sd">        # Bond distance between atoms 0 and 7 as KDE</span>
-<span class="sd">        PlotDistribution(get=&quot;distance:0,7&quot;, type=&quot;kde&quot;)</span>
-
-<span class="sd">        # Histogram of energies from iteration 3</span>
-<span class="sd">        PlotDistribution(target_iteration=3, get=&quot;energy&quot;, type=&quot;hist&quot;, bins=40, alpha=0.5)</span>
-
-<span class="sd">        # Customized markers for energy plot</span>
-<span class="sd">        PlotDistribution(get=&quot;energy&quot;, type=&quot;line&quot;, color=&quot;red&quot;, marker=&quot;x&quot;, linestyle=&quot;--&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; # Default plot: potential energy across all iterations as a line plot</span>
+<span class="sd">        &gt;&gt;&gt; PlotDistribution()</span>
+<span class="sd">        &gt;&gt;&gt; # Explicit energy line plot</span>
+<span class="sd">        &gt;&gt;&gt; PlotDistribution(get=&quot;energy&quot;, type=&quot;line&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; # Bond distance between atoms 0 and 7 as KDE</span>
+<span class="sd">        &gt;&gt;&gt; PlotDistribution(get=&quot;distance:0,7&quot;, type=&quot;kde&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; # Histogram of energies from iteration 3</span>
+<span class="sd">        &gt;&gt;&gt; PlotDistribution(target_iteration=3, get=&quot;energy&quot;, type=&quot;hist&quot;, bins=40, alpha=0.5)</span>
+<span class="sd">        &gt;&gt;&gt; # Customized markers for energy plot</span>
+<span class="sd">        &gt;&gt;&gt; PlotDistribution(get=&quot;energy&quot;, type=&quot;line&quot;, color=&quot;red&quot;, marker=&quot;x&quot;, linestyle=&quot;--&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">property_dict</span> <span class="o">=</span> <span class="p">{}</span>
@@ -710,10 +759,13 @@
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="n">ncol</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
 <span class="c1">########################################################################################################</span>
 <span class="c1"># Plot Potential Energy Surface</span>
 <span class="c1">########################################################################################################</span>
+<div class="viewcode-block" id="PlotPES">
+<a class="viewcode-back" href="../../../../analysis.html#sparc.src.utils.plot_utils.PlotPES">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">PlotPES</span><span class="p">(</span>
     <span class="n">root_dir</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span>
     <span class="n">iteration_window</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">,</span>
@@ -738,17 +790,14 @@
 <span class="sd">        **kwargs: Extra kwargs forwarded to seaborn/matplotlib functions.</span>
 
 <span class="sd">    Example usage:</span>
-<span class="sd">        # Default KDE plot of energy vs. bond distance between atoms 0 and 7</span>
-<span class="sd">        PlotPES()</span>
-
-<span class="sd">        # Hexbin plot with custom bin count</span>
-<span class="sd">        PlotPES(type=&quot;hexbin&quot;, bins=(60,))</span>
-
-<span class="sd">        # Heatmap from a specific iteration</span>
-<span class="sd">        PlotPES(target_iteration=3, type=&quot;heatmap&quot;, bins=(40, 40))</span>
-
-<span class="sd">        # KDE plot with a custom colormap</span>
-<span class="sd">        PlotPES(type=&quot;kde&quot;, cmap=&quot;mako&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; # Default KDE plot of energy vs. bond distance between atoms 0 and 7</span>
+<span class="sd">        &gt;&gt;&gt; PlotPES()</span>
+<span class="sd">        &gt;&gt;&gt; # Hexbin plot with custom bin count</span>
+<span class="sd">        &gt;&gt;&gt; PlotPES(type=&quot;hexbin&quot;, bins=(60,))</span>
+<span class="sd">        &gt;&gt;&gt; # Heatmap from a specific iteration</span>
+<span class="sd">        &gt;&gt;&gt; PlotPES(target_iteration=3, type=&quot;heatmap&quot;, bins=(40, 40))</span>
+<span class="sd">        &gt;&gt;&gt; # KDE plot with a custom colormap</span>
+<span class="sd">        &gt;&gt;&gt; PlotPES(type=&quot;kde&quot;, cmap=&quot;mako&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
     <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -863,7 +912,8 @@
     <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
     <span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">right</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mf">0.12</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.12</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span></div>
+
 <span class="c1">########################################################################################################</span>
 <span class="c1"># Plot Temperature from Deep Potential Dynamics</span>
 <span class="c1">########################################################################################################</span>

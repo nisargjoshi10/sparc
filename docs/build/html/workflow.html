@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Workflow &mdash; SPARC 0.1.0 documentation</title>
+  <title>WorkFlow &mdash; SPARC 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f7b18df9" />
@@ -161,26 +161,22 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="analysis.html#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="analysis.html#model-deviation-in-forces">Model deviation in Forces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="analysis.html#function">Function:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#model-deviation-in-forces">Model deviation in Forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#api-reference">API Reference:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Workflow</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#function">Function:</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">WorkFlow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-directory-structure">Example Directory Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#geometry-tab-details">Geometry Tab Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-sparc.src.utils.workflow">API Reference:</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#sparc.src.utils.workflow.WorkFlowAnalysis"><code class="docutils literal notranslate"><span class="pre">WorkFlowAnalysis()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#features">Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#quick-start">Quick Start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example-directory-structure">Example Directory Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#geometry-tab-details">Geometry Tab Details</a></li>
 </ul>
 </li>
 </ul>
@@ -201,7 +197,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Workflow</li>
+      <li class="breadcrumb-item active">WorkFlow</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/workflow.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -212,19 +208,12 @@
            <div itemprop="articleBody">
              
   <section id="workflow">
-<h1>Workflow<a class="headerlink" href="#workflow" title="Link to this heading"></a></h1>
-<section id="function">
-<h2>Function:<a class="headerlink" href="#function" title="Link to this heading"></a></h2>
-<dl class="py function">
-<dt class="sig sig-object py" id="sparc.src.utils.workflow.WorkFlowAnalysis">
-<span class="sig-prename descclassname"><span class="pre">sparc.src.utils.workflow.</span></span><span class="sig-name descname"><span class="pre">WorkFlowAnalysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/utils/workflow.html#WorkFlowAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.utils.workflow.WorkFlowAnalysis" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
+<span id="id1"></span><h1>WorkFlow<a class="headerlink" href="#workflow" title="Link to this heading"></a></h1>
 <p>This Python module provides an interactive interface for analyzing workflow outputs across multiple iterations.
 The script is especially useful for to inspect energetics and geometric properties over training iterations.</p>
 <p>It is designed for Jupyter Notebook environments using <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, and <code class="docutils literal notranslate"><span class="pre">ASE</span></code>.</p>
 <section id="features">
-<h3>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h3>
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Load and visualize per-iteration properties from the trajectory file (e.g., temperature, energy).</p></li>
 <li><p>Interactive widgets for selecting root directory, trajectory paths, and specific iterations.</p></li>
@@ -232,7 +221,7 @@ The script is especially useful for to inspect energetics and geometric properti
 </ul>
 </section>
 <section id="dependencies">
-<h3>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h3>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>numpy</p></li>
 <li><p>matplotlib</p></li>
@@ -240,7 +229,7 @@ The script is especially useful for to inspect energetics and geometric properti
 </ul>
 </section>
 <section id="quick-start">
-<h3>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h3>
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Launch a Jupyter Notebook.</p></li>
 <li><p>Import and call the <cite>WorkFlowAnalysis()</cite> function from sparc library:</p>
@@ -270,7 +259,7 @@ The script is especially useful for to inspect energetics and geometric properti
 </ol>
 </section>
 <section id="example-directory-structure">
-<h3>Example Directory Structure<a class="headerlink" href="#example-directory-structure" title="Link to this heading"></a></h3>
+<h2>Example Directory Structure<a class="headerlink" href="#example-directory-structure" title="Link to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>project_root/
 ├── iter_000000/
 │   └── 02.dpmd/
@@ -285,15 +274,44 @@ The script is especially useful for to inspect energetics and geometric properti
 </div>
 </section>
 <section id="geometry-tab-details">
-<h3>Geometry Tab Details<a class="headerlink" href="#geometry-tab-details" title="Link to this heading"></a></h3>
+<h2>Geometry Tab Details<a class="headerlink" href="#geometry-tab-details" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Choose “Bond” or “Angle” type.</p></li>
 <li><p>Provide indices for atoms (e.g., <cite>0 1</cite> or <cite>0 1 2</cite>).</p></li>
 <li><p>The y-axis label will automatically render the proper bond/angle symbols with subscripts.</p></li>
 </ul>
-<a class="reference internal image-reference" href="_static/WorkflowAnalysis.gif"><img alt="Workflow Analysis Animation" src="_static/WorkflowAnalysis.gif" style="width: 600px;" />
+<a class="reference internal image-reference" href="_images/WorkflowAnalysis.gif"><img alt="Workflow Analysis Animation" src="_images/WorkflowAnalysis.gif" style="width: 600px;" />
 </a>
 </section>
+<section id="module-sparc.src.utils.workflow">
+<span id="api-reference"></span><h2>API Reference:<a class="headerlink" href="#module-sparc.src.utils.workflow" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="sparc.src.utils.workflow.WorkFlowAnalysis">
+<span class="sig-prename descclassname"><span class="pre">sparc.src.utils.workflow.</span></span><span class="sig-name descname"><span class="pre">WorkFlowAnalysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/utils/workflow.html#WorkFlowAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.utils.workflow.WorkFlowAnalysis" title="Link to this definition"></a></dt>
+<dd><p>Interactive analysis and visualization tools for monitoring molecular dynamics
+simulations across multiple active learning iterations. Provides utilities for
+loading trajectory data, extracting physical properties, and creating plots
+with Jupyter widget interfaces.</p>
+<section id="main-features">
+<h3>Main Features<a class="headerlink" href="#main-features" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Scan and load iteration folders with trajectory files.</p></li>
+<li><p>Plot temperature, energies, and user-defined geometric quantities.</p></li>
+<li><p>Interactive Jupyter widgets for selecting iterations, trajectory files, and plotting results.</p></li>
+<li><p>Geometry tab for analyzing bond lengths, angles, and dihedrals.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Dependencies<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>numpy</p></li>
+<li><p>matplotlib</p></li>
+<li><p>ase (Atomic Simulation Environment)</p></li>
+<li><p>ipywidgets</p></li>
+</ul>
+</section>
+</dd></dl>
+
 </section>
 </section>
 
