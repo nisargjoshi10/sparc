@@ -87,7 +87,7 @@ def umbrella(config, us_dir, dp_path, dp_model):
     """
     This function sets up a PLUMED calculator for umbrella sampling simulations.
     It reads a configuration file defining the umbrella sampling windows and applies
-    biasing forces to the system to keep the atoms within these windows.
+    restraining force to a coordinate for each window.
 
     Parameters:
     config : dict   

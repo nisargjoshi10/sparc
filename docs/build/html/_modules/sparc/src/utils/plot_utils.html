@@ -44,25 +44,18 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../install.html">SPARC Installation Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../install.html#core-software-dependencies">Core Software Dependencies:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../install.html#dependencies">Dependencies:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../install.html#python-package-dependencies">Python Package Dependencies:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../install.html#step-by-step-installation">Step-by-Step Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../install.html#environment-setup">Environment Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../install.html#verification">Verification</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../quickstart.html">Quick Start Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#set-environment-variables">Set Environment Variables:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#basic-usage">Basic Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#example-input-file">Example Input File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#running-a-simulation">Running a Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#environment-variables">Environment Variables:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#basicusage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#input-file">Input File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#running-the-workflow">Running the WorkFlow</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#directory-structure">Directory Structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../quickstart.html#core-components">Core Components</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../quickstart.html#md-simulation">1. MD Simulation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../quickstart.html#deepmd-training">2. DeepMD Training</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../quickstart.html#active-learning">3. Active Learning</a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../yaml.html">Input File</a><ul>
@@ -80,9 +73,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../calculator.html">DFT Calculator</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../calculator.html#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../calculator.html#class-setupdftcalculator">Class : SetupDFTCalculator</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../calculator.html#id1">dft_calculator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../calculator.html#class-setupdftcalculator">Class : SetupDFTCalculator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../calculator.html#function">function</a></li>
 </ul>
 </li>
 </ul>
@@ -445,7 +437,7 @@
 
     <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">dmin</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">dmax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
-    <span class="c1">#plt.fill_between([min(steps), max(steps)], dmin, dmax, color=&#39;grey&#39;, alpha=0.3)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">steps</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">steps</span><span class="p">)],</span> <span class="n">dmin</span><span class="p">,</span> <span class="n">dmax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>   
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Candidates&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Max. Force Deviation ($\rm{eV/\AA}$)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>

@@ -152,7 +152,7 @@ def ExecuteAbInitioDynamics(system, dyn, steps, pace, log_filename, trajfile, di
     if steps <= 0:
         return
 
-    SparcLog("\n" + "=" * 72 + "\n")
+    SparcLog("=" * 72 + "\n")
     SparcLog(f"Starting AIMD Simulation [{name}]".center(72) + "\n")
     SparcLog("=" * 72 + "\n")
 

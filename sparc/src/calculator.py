@@ -10,7 +10,6 @@ import yaml
 from ase.calculators.vasp import Vasp
 from ase.calculators.cp2k import CP2K
 from ase.units import Rydberg
-
 ################################################################
 # Local import
 from sparc.src.utils.logger import SparcLog
@@ -18,14 +17,15 @@ from sparc.src.utils.read_incar import parse_incar
 #===================================================================================================#
 class SetupDFTCalculator:
     """
-    Class to set up DFT calculators for VASP and CP2K using ASE atom objects.
+    
+    Module to set up DFT calculators using ASE atom objects.
 
     Parameters
     ----------
     input_config : dict
         Dictionary containing configuration for the DFT calculator.
     print_screen : bool, optional
-        Whether to print details of the configuration. Default is False.
+        Prints input parameters on the output file. [default: False]
     """
 
     def __init__(self, input_config, print_screen=False):
@@ -50,12 +50,12 @@ class SetupDFTCalculator:
 
     def vasp(self):
         """
-        Set up the VASP calculator for ASE atom objects.
+        Set up the VASP calculator.
 
         Returns
         -------
-        Vasp
-            The configured VASP calculator object.
+        VASP or None
+            The configured VASP calculator object, or None if an error occurs.
         """
         if self.dft_config['name'] != "VASP":
             raise ValueError("Unsupported DFT calculator. Only VASP is supported.")
@@ -102,7 +102,7 @@ class SetupDFTCalculator:
 
     def cp2k(self):
         """
-        Set up the CP2K calculator for ASE atom objects.
+        Set up the CP2K calculator.
 
         Returns
         -------

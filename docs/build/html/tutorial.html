@@ -1,0 +1,409 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial &mdash; SPARC 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f7b18df9" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Analysis" href="analysis.html" />
+    <link rel="prev" title="Plumed Integtation" href="plumed_wrapper.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SPARC
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">SPARC Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#dependencies">Dependencies:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#python-package-dependencies">Python Package Dependencies:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#step-by-step-installation">Step-by-Step Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#verification">Verification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#environment-variables">Environment Variables:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#basicusage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#input-file">Input File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#running-the-workflow">Running the WorkFlow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#directory-structure">Directory Structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yaml.html">Input File</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="yaml.html#general-settings">General Settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yaml.html#dft-calculator">DFT Calculator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaml.html#md-simulation">MD Simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaml.html#plumed">PLUMED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaml.html#deepmd">DeepMD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaml.html#active-learning">Active Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaml.html#metric">Metric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaml.html#output">Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yaml.html#directory-structure">Directory structure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calculator.html">DFT Calculator</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calculator.html#class-setupdftcalculator">Class : SetupDFTCalculator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calculator.html#vasp">VASP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calculator.html#cp2k">CP2K</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="calculator.html#sparc.src.calculator.SetupDFTCalculator"><code class="docutils literal notranslate"><span class="pre">SetupDFTCalculator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="calculator.html#sparc.src.calculator.dft_calculator"><code class="docutils literal notranslate"><span class="pre">dft_calculator()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="calculator.html#example-use">Example Use:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deepmd.html">DeePMD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deepmd.html#sparc.src.deepmd.setup_DeepPotential"><code class="docutils literal notranslate"><span class="pre">setup_DeepPotential()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="deepmd.html#example-evaluate-a-frozen-model">Example: Evaluate a Frozen Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deepmd.html#sparc.src.deepmd.evaluate_model_accuracy"><code class="docutils literal notranslate"><span class="pre">evaluate_model_accuracy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="deepmd.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="md.html">Molecular Dynamics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="md.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="md.html#simulation-outputs">Simulation Outputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="md.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="md.html#sparc.src.ase_md.NoseNVT"><code class="docutils literal notranslate"><span class="pre">NoseNVT()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="md.html#sparc.src.ase_md.LangevinNVT"><code class="docutils literal notranslate"><span class="pre">LangevinNVT()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="md.html#sparc.src.ase_md.ExecuteAbInitioDynamics"><code class="docutils literal notranslate"><span class="pre">ExecuteAbInitioDynamics()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="md.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataProcess.html">ProcessData</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataProcess.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DataProcess.html#sparc.src.data_processing.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataProcess.html#reference">Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plumed_wrapper.html">Plumed Integtation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#sprint-collective-variable">SPRINT Collective Variable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plumed_wrapper.html#sparc.src.plumed_wrapper.modify_forces"><code class="docutils literal notranslate"><span class="pre">modify_forces()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#umbrella-sampling-in-sparc">Umbrella Sampling in SPARC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#yaml-settings-for-umbrella-sampling">YAML Settings for Umbrella Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#folder-layout-example">Folder Layout Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#example-plumed-file">Example PLUMED File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#output">Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#id1">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plumed_wrapper.html#sparc.src.plumed_wrapper.umbrella"><code class="docutils literal notranslate"><span class="pre">umbrella()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="plumed_wrapper.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example-pes-scan-in-ammonia-borate-nh-3bh-3">Example: PES scan in Ammonia Borate (NH<span class="math notranslate nohighlight">\(_3\)</span>BH<span class="math notranslate nohighlight">\(_3\)</span>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparation">Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#yaml-input">YAML Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-aimd">Running AIMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#training-deepmd">Training DeepMD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-ml-md">Running ML/MD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring-model-deviation">Monitoring Model Deviation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#active-learning-loop">Active Learning Loop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analysis">Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enhanced-sampling">Enhanced Sampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analysis.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#model-deviation-in-forces">Model deviation in Forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#function">Function:</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#function">Function:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workflow.html#sparc.src.utils.workflow.WorkFlowAnalysis"><code class="docutils literal notranslate"><span class="pre">WorkFlowAnalysis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="workflow.html#features">Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workflow.html#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workflow.html#quick-start">Quick Start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workflow.html#example-directory-structure">Example Directory Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workflow.html#geometry-tab-details">Geometry Tab Details</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPARC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-tutorial">
+<span id="tutorial"></span><h1>Tutorial<a class="headerlink" href="#module-tutorial" title="Link to this heading"></a></h1>
+<p>Welcome to SPARC tutorial.!</p>
+<section id="example-pes-scan-in-ammonia-borate-nh-3bh-3">
+<h2>Example: PES scan in Ammonia Borate (NH<span class="math notranslate nohighlight">\(_3\)</span>BH<span class="math notranslate nohighlight">\(_3\)</span>)<a class="headerlink" href="#example-pes-scan-in-ammonia-borate-nh-3bh-3" title="Link to this heading"></a></h2>
+<div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+   <img src="_static/AmmoniaBorate.png" alt="" style="height: 120px; object-fit: contain;">
+</div></section>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>In this tutorial, we demonstrate how to use <strong>SPARC</strong> to build a ML potential and then later use that to study the dissociation of B-N bond. We will show how to:</p>
+<ol class="arabic simple">
+<li><p>Prepare input files, also see section <a class="reference internal" href="yaml.html#inputfile"><span class="std std-ref">Input File</span></a> .</p></li>
+<li><p>Run <strong>ab initio molecular dynamics</strong> (AIMD).</p></li>
+<li><p>Train a DeepMD potential.</p></li>
+<li><p>Run Machine Learning Molecular Dynamics (ML/MD).</p></li>
+<li><p>Use <strong>active learning</strong> together with <strong>QbC</strong> to adaptively improve the model.</p></li>
+<li><p>Perform analysis and visualize results.</p></li>
+</ol>
+</section>
+<section id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Link to this heading"></a></h2>
+<p>First, create a new working directory and copy the example files:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>nh3bh3_example
+<span class="nb">cd</span><span class="w"> </span>nh3bh3_example
+cp<span class="w"> </span>-r<span class="w"> </span><span class="nv">$SPARC_HOME</span>/docs/tests/nh3bh3/*<span class="w"> </span>.
+</pre></div>
+</div>
+<p>The folder contains:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.
+├──<span class="w"> </span>INCAR
+├──<span class="w"> </span>POSCAR
+├──<span class="w"> </span>input.yaml
+└──<span class="w"> </span>input.json
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">POSCAR</span></code>: Initial structure.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INCAR</span></code>: VASP control file for AIMD.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input.yaml</span></code>: SPARC configuration.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input.json</span></code>: DeepMD training parameters.</p></li>
+</ul>
+</section>
+<section id="yaml-input">
+<h2>YAML Input<a class="headerlink" href="#yaml-input" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">input.yaml</span></code> defines the SPARC workflow:</p>
+<p>Key sections:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">general</span></code>: Structure file, MD steps, log frequency.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">md_simulation</span></code>: Ensemble, thermostat, timestep, temperature.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dft_calculator</span></code>: Settings for VASP.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">active_learning</span></code>: Control for iterative improvement.</p></li>
+</ul>
+</section>
+<section id="running-aimd">
+<h2>Running AIMD<a class="headerlink" href="#running-aimd" title="Link to this heading"></a></h2>
+<p>Run SPARC with the provided input:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sparc<span class="w"> </span>-i<span class="w"> </span>input.yaml
+</pre></div>
+</div>
+<p>This launches <strong>iteration 0</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iter_000000/
+├──<span class="w"> </span><span class="m">00</span>.dft<span class="w">    </span><span class="c1"># Ab initio MD data</span>
+├──<span class="w"> </span><span class="m">01</span>.train<span class="w">  </span><span class="c1"># Training of DeepMD models</span>
+└──<span class="w"> </span><span class="m">02</span>.dpmd<span class="w">   </span><span class="c1"># ML-driven MD simulation</span>
+</pre></div>
+</div>
+</section>
+<section id="training-deepmd">
+<h2>Training DeepMD<a class="headerlink" href="#training-deepmd" title="Link to this heading"></a></h2>
+<p>SPARC automatically collects AIMD data and prepares training/validation sets.
+It then launches DeepMD training:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>iter_000000/01.train
+less<span class="w"> </span>lcurve.out
+</pre></div>
+</div>
+<p>You should see a learning curve similar to:</p>
+<a class="reference internal image-reference" href="../figures/learning_curve.png"><img alt="../figures/learning_curve.png" class="align-center" src="../figures/learning_curve.png" style="width: 60%;" />
+</a>
+</section>
+<section id="running-ml-md">
+<h2>Running ML/MD<a class="headerlink" href="#running-ml-md" title="Link to this heading"></a></h2>
+<p>Once models are trained, SPARC runs ML/MD simulations:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>iter_000000/02.dpmd
+ls
+
+AseTraj.xyz<span class="w">    </span><span class="c1"># trajectory</span>
+md.out<span class="w">         </span><span class="c1"># log</span>
+model_dev.out<span class="w">  </span><span class="c1"># model deviation info</span>
+</pre></div>
+</div>
+</section>
+<section id="monitoring-model-deviation">
+<h2>Monitoring Model Deviation<a class="headerlink" href="#monitoring-model-deviation" title="Link to this heading"></a></h2>
+<p>SPARC tracks force deviations between models:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>less<span class="w"> </span>model_dev.out
+</pre></div>
+</div>
+<p>Frames with deviation above threshold are flagged and sent for relabeling
+using VASP. These will appear in the <strong>next iteration</strong> folder.</p>
+</section>
+<section id="active-learning-loop">
+<h2>Active Learning Loop<a class="headerlink" href="#active-learning-loop" title="Link to this heading"></a></h2>
+<p>The workflow continues automatically:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>iter_000001/
+├──<span class="w"> </span><span class="m">00</span>.dft
+├──<span class="w"> </span><span class="m">01</span>.train
+└──<span class="w"> </span><span class="m">02</span>.dpmd
+</pre></div>
+</div>
+<p>In each cycle:</p>
+<ol class="arabic simple">
+<li><p>Structures are labeled with DFT.</p></li>
+<li><p>Models are retrained.</p></li>
+<li><p>DPMD is run with updated potentials.</p></li>
+</ol>
+</section>
+<section id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Link to this heading"></a></h2>
+<p>SPARC provides utilities for plotting and analysis. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sparc.src.utils.analysis_tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_learning_curve</span>
+<span class="n">plot_learning_curve</span><span class="p">(</span><span class="s2">&quot;iter_000003/01.train/learning_curve.out&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Other available plots:</p>
+<ul class="simple">
+<li><p>Force deviation across iterations.</p></li>
+<li><p>Free energy surfaces (with PLUMED).</p></li>
+<li><p>Temperature/energy time series.</p></li>
+</ul>
+</section>
+<section id="enhanced-sampling">
+<h2>Enhanced Sampling<a class="headerlink" href="#enhanced-sampling" title="Link to this heading"></a></h2>
+<p>SPARC integrates <strong>PLUMED</strong> for enhanced sampling:</p>
+<ul class="simple">
+<li><p>Metadynamics</p></li>
+<li><p>Umbrella sampling</p></li>
+<li><p>SPRINT collective variables</p></li>
+</ul>
+<p>To enable, include a <code class="docutils literal notranslate"><span class="pre">plumed_input</span></code> key in <code class="docutils literal notranslate"><span class="pre">input.yaml</span></code> and provide
+a <code class="docutils literal notranslate"><span class="pre">plumed.dat</span></code> file.</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>In this tutorial, we learned how to:</p>
+<ul class="simple">
+<li><p>Run AIMD with VASP inside SPARC.</p></li>
+<li><p>Train DeepMD potentials.</p></li>
+<li><p>Perform DPMD simulations.</p></li>
+<li><p>Use active learning to adaptively improve potentials.</p></li>
+<li><p>Couple simulations with PLUMED for rare-event sampling.</p></li>
+</ul>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Try replacing the system with your own molecule or solid.</p></li>
+<li><p>Explore umbrella sampling with multiple windows.</p></li>
+<li><p>Use different collective variables (e.g. torsions, distances).</p></li>
+<li><p>Extend the workflow with NequIP or xTB calculators.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="plumed_wrapper.html" class="btn btn-neutral float-left" title="Plumed Integtation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="analysis.html" class="btn btn-neutral float-right" title="Analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

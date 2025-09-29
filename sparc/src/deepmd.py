@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 #! deepmd.py
-"""
-DeepMD module for SPARC package.
+# """
+# DeepMD module for SPARC package.
 
-This module contains functions for:
-1. Setting up DeepPotential calculators for ASE atoms objects
-2. Training DeepMD models with various configurations
-3. Model freezing and compression
+# This module contains functions for:
+# 1. Setting up DeepPotential calculators for ASE atoms objects
+# 2. Training DeepMD models with various configurations
+# 3. Model freezing and compression
 
-The module provides a unified interface for all DeepMD-related operations.
-"""
+# The module provides a unified interface for all DeepMD-related operations.
+# """
 ################################################################
 # standard import
 import os

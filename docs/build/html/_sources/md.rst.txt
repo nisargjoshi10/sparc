@@ -6,11 +6,16 @@ Molecular Dynamics
 Overview
 --------
 
-This module provides functionalities for running molecular dynamics (MD) simulations using ASE (Atomic Simulation Environment). 
-It includes different thermostats and integrators to handle NVT MD simulations.
+SPARC run MD simulation leveraging the ASE `MD engine <https://ase-lib.org/ase/md.html>`_ framework.
+It supports both *ab initio* MD (AIMD) and machine-learning MD (ML-MD) using DeepPotential models.  
+This module integrates thermostats, logging, checkpointing, and trajectory handling into a unified workflow.
 
-Each iteration of ML/MD data will be stored in corresponding ``iter_0000xx`` directory. 
-Which will have the a corresponding ``log_file`` and ``traj`` file.
+It currently supports the NVT ensemble with ``Langevin`` thermostat or the ``Nosé-Hoover chain`` thermostat. Parameters such as damping time (for ``Nose``) or friction coefficient (``Langevin``) needs to defined.
+
+Each ML/MD iteration is saved in the corresponding ``iter_0000xx/02.dpmd`` directory, which includes the simulation log (``log_file``), the trajectory of atomic positions (``extxyz`` or ``traj``).  It also write a checkpoint file to restart long simulations.
+
+Simulation Outputs
+==================
 
 .. code-block:: bash
 
@@ -23,74 +28,56 @@ Which will have the a corresponding ``log_file`` and ``traj`` file.
     0.2800        -112.6910    -113.7220       1.0310   379.8
     0.3500        -112.8007    -113.2903       0.4896   180.4
 
+.. Module Contents
+.. ---------------
 
-Features:
----------
-- Nose-Hoover and Langevin thermostats for NVT simulations
-- *ab-initio* energy calculations
-- *ab-initio* and ML molecular dynamics execution
+.. .. automodule:: src.ase_md
+..     :members:
+..     :undoc-members:
+..     :show-inheritance:
 
-.. - LAMMPS integration for MD simulations
+.. Functions:
+.. ----------
 
-Module Contents
----------------
+.. .. autofunction:: sparc.src.ase_md.NoseNVT
 
-.. automodule:: src.ase_md
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. .. autofunction:: sparc.src.ase_md.LangevinNVT
 
-Functions:
-----------
-
-.. autofunction:: sparc.src.ase_md.NoseNVT
-
-.. autofunction:: sparc.src.ase_md.LangevinNVT
-
-.. ### CalculateDFTEnergy
-
-.. .. autofunction:: ase_md.CalculateDFTEnergy
-
-.. ### ExecuteAbInitioDynamics
-
-.. .. autofunction:: ase_md.ExecuteAbInitioDynamics
-
-.. ### ExecuteMlpDynamics
-
-.. .. autofunction:: ase_md.ExecuteMlpDynamics
-
-.. ### lammps_md
-
-.. .. autofunction:: ase_md.lammps_md
 
 Usage Examples
 --------------
 
 - Nose-Hoover NVT Simulation:
 
+.. autofunction:: sparc.src.ase_md.NoseNVT
+
 .. code-block:: python
 
     from ase import Atoms
-    from ase_md import NoseNVT
+    from sparc.src.ase_md import NoseNVT
 
     atoms = Atoms("H2O")
     dyn = NoseNVT(atoms, temperature=300)
     dyn.run(1000)
 
 - Langevin NVT Simulation:
-  
+
+.. autofunction:: sparc.src.ase_md.LangevinNVT
+
 .. code-block:: python
 
-    from ase_md import LangevinNVT
+    from sparc.src.ase_md import LangevinNVT
 
     dyn = LangevinNVT(atoms, temperature=300, friction=0.01)
     dyn.run(1000)
 
 - Ab-initio Molecular Dynamics:
-  
+
+.. autofunction:: sparc.src.ase_md.ExecuteAbInitioDynamics
+
 .. code-block:: python
 
-    from ase_md import ExecuteAbInitioDynamics
+    from sparc.src.ase_md import ExecuteAbInitioDynamics
 
     ExecuteAbInitioDynamics(system=atoms, dyn=dyn, steps=500, pace=10, 
                             log_filename="aimd.log", trajfile="aimd.traj", 

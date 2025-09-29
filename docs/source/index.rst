@@ -6,23 +6,28 @@
 .. raw:: html
 
    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
-     <img src="_static/sparc_logo.png" alt="SPARC Logo" style="height: 150px; object-fit: contain;">
-     <span style="font-size: 1.5em; font-weight: bold;">Welcome to SPARC's documentation!</span>
+      <img src="_static/sparc_logo.png" alt="SPARC Logo" style="height: 150px; object-fit: contain;">
+      <span style="font-size: 1.5em; font-weight: bold;">Welcome to SPARC's documentation!</span>
    </div>
 
 
 .. Welcome to SPARC's documentation!
 .. =================================
 
-**SPARC** (**S**\ mart **P**\ otential with **A**\ tomistic **R**\ are Events and **C**\ ontinuous Learning) 
-is a Python package build around the `ASE <ase_>`_ wrapper that implements an automated workflow of developing machine learning potential for reactive chemical systems. 
-This package is designed to work seamlessly within the Python framewrok, providing users with powerful tools for efficient simulation and model improvement.
+**SPARC** (**S**\ mart **P**\ otential with **A**\ tomistic **R**\ are Events and **C**\ ontinuous Learning) :is a Python package built around the `ASE <ase_>`_ library. 
+``SPARC`` is a modular workflow for training machine learning interatomic potentials (MLIPs) for reactive/nonreactive system. 
+It supports various first-principle calculators, and ML arcitechture together with accelerated sampling of configurational space, which enables efficient simulation and on-the-fly model improvement.
+
+.. _scientific_overview:
 
 Scientific Overview
 --------------------
-SPARC workflow employs an active learning protocol to iteratively refine machine learning potentials using first-principles calculations. 
-This enables users to develop highly accurate potentials for molecular dynamics simulations, which is essential for studying 
-complex materials and chemical processes.
+Constructing a reactive and transfarable ML potential is challanging, as it requires high quality training data which includes rare events, high energy intermediates, and transition state.
+A ML model that can generate chemically accurate potential energy surface is important for studying rare events.
+SPARC automates this by pushing a trained ML model to access different configurations in the potential energy surface to predict beyond its knowledge.
+The idea behind SPARC is to use the active learning protocol together with advance sampling techniques that systematicallt identifies new configurations and trains a ML model on-the-fly.
+the workflow consist of four main steps, three main steps, ML model training using `DeePMD-kit <deepmd_>`_ package, accelerated sampling driven PES exploration using `PLUMED <plumed_>`_ library, 
+and new configuration labelling using first-principle calculations, which are executed iteratively in a loop until a reactive and stable MLIP is constructed. .
 
 .. toctree::
    :maxdepth: 2
@@ -36,6 +41,7 @@ complex materials and chemical processes.
    md
    DataProcess
    plumed_wrapper
+   tutorial
    analysis
    workflow
    user_guide/index
@@ -47,19 +53,20 @@ Key Features
 ------------
 SPARC provides the following core functionalities:
 
-- **First-principles calculations** with `VASP <vasp_>`_ and `CP2K <cp2k_>`_ for first-principle calculations
-- **Machine learning model training** with `DeepMD-kit <deepmd_>`_ package
-- **Machine learning molecular dynamics (ML/MD)** simulations using `ASE <ase_>`_ MD engine for efficient and scalable modeling
-- **Active learning** for continuous model improvement through iterative training and data selection
-- **Potential Energy Surface Exploration** through integration with `PLUMED <plumed_>`_ library
+- **First-principles calculations** and *ab inito* molecular dynamis simulation together with PLUMED plugin.
+- **Machine-learning potential training** with `DeepMD-kit <deepmd_>`_.
+- **Machine-learning molecular dynamics (ML/MD)** simulations using `ASE MD <asemd_>`_ engine for NVT ensamble.
+- **Active learning** using query-by-committee approach to label new configurations for continuous model improvement.
+- **Potential energy surface exploration** with integration of `PLUMED <plumed_>`_ plugin.
+- **Visualisation** of verious properties to monitor the workflow.
 
 Use Cases
 ---------
 Here are some example use cases for SPARC:
 
-1. **Material Property Prediction:** Use SPARC to develop accurate interatomic potentials for molecular dynamics simulations to predict the properties of new materials.
-2. **Chemical Reaction Pathways:** Apply active learning to uncover reaction mechanisms by training a potential based on sparse, high-quality data points.
-3. **High-Throughput Simulations:** Combine SPARC's active learning protocol with high-throughput simulation to explore large chemical spaces efficiently.
+1. **Material property prediction:** : Develop accurate interatomic potentials for materials property prediction and molecular dynamics simulation.
+2. **Chemical reaction pathways:** : Uncover reaction mechanisms by finding new configurations and training a ML model on-the-fly.
+3. **High-throughput simulations:** to efficiently explore large chemical spaces.
 
 Installation
 ------------
@@ -73,7 +80,7 @@ Indices and Tables
 * :ref:`search` 
   
 .. _vasp: https://www.vasp.at/
-.. _cp2k: https://www.cp2k.org/
 .. _deepmd: https://github.com/deepmodeling/deepmd-kit
 .. _plumed: https://www.plumed.org/
 .. _ase: https://wiki.fysik.dtu.dk/ase/
+.. _asemd: https://ase-lib.org/ase/md.html

@@ -3,37 +3,57 @@
 Quick Start Guide
 =================
 
-Welcome to the Quick Start Guide for setting up and running your first simulation with SPARC. 
-This guide will walk you through the basic setup, configuration, and execution steps, allowing you to quickly begin your calculation.
-Follow these simple steps to configure your environment, set up an input file. 
-An example input file is provided in the Basic Usage section below.
+Welcome to the Quick Start Guide for setting up and running your first simulation with ``SPARC``.  
+This guide walks you through the basic setup, configuration, and execution steps, allowing you to quickly begin your calculations.  
+Follow these steps to configure your environment and set up an input file.  
+An example input file is provided in the `Basic Usage <BasicUsage>`_ section below.
 
-Set Environment Variables:
---------------------------
+Environment Variables:
+----------------------
 
-.. code-block:: bash
+When using different *ab initio* packages, certain environment variables must be defined prior to executing the workflow. 
+These ensure that the underlying electronic structure code can locate the required pseudopotentials, basis sets, and related data files.
 
-  export VASP_PP_PATH=/path/to/vasp/potcar_files    # POTCAR files path
+- **First-principle Calculator**
+  
+  * **VASP**
 
-If PLUMED is installed manually (skip: if used ``conda-forge``), we need to set the ``plumed`` environment.
+    The pseudopotential library must be made available by setting the path to the POTCAR files through ``VASP_PP_PATH``.
+    See the ASE `VASP documentation <https://ase-lib.org/ase/calculators/vasp.html>`_.
 
-.. code-block:: bash
+    .. code-block:: bash
 
-  export PLUMED_KERNEL="$CONDA_PREFIX/lib/libplumedKernel.so"
-  export PYTHONPATH="$CONDA_PREFIX/lib/plumed/python:$PYTHONPATH"
+      export VASP_PP_PATH=/path/to/vasp/potcar_files    # path to POTCAR files path
 
+  * **CP2K**
+
+    CP2K requires access to basis set and pseudopotential library, which is specified through the ``CP2K_DATA_DIR`` variable.
+    See the ASE `CP2K documentation <https://ase-lib.org/ase/calculators/cp2k.html>`_.
+
+    .. code-block:: bash
+
+      export $CP2K_DATA_DIR=/path/to/cp2k/data        # path to CP2K basis set data directory
+
+- **PLUMED**
+  
+  If PLUMED was installed manually (skip: if used ``conda-forge``), you need to set the ``plumed`` environment variable.
+
+  .. code-block:: bash
+
+    export PLUMED_KERNEL="$CONDA_PREFIX/lib/libplumedKernel.so"
+    export PYTHONPATH="$CONDA_PREFIX/lib/plumed/python:$PYTHONPATH"
+
+.. _BasicUsage:
 Basic Usage
 -----------
 
-``sparc`` code requires a ``YAML`` input file. 
-This file contains essential settings that define the parameters for the simulation, 
-such as the structure file, the number of molecular dynamics settings, system configuration, 
-and the specifics of the DFT calculator (e.g., VASP or other supported tools).
+``SPARC`` code requires a ``YAML`` input file that specifies the essential parameters of the workflow.
+Each block in the file controls different part of the workflow, such as system setup, MD settings, or the DFT calculator.  
 
-An example YAML input is provided below.
+An example input file is shown below.
 
-Example Input File
-------------------
+Input File
+----------
 
 .. code-block:: yaml
 
@@ -52,10 +72,10 @@ Example Input File
       incar_file: "INCAR"
       exe_command: "mpirun -np 2 /path/to/vasp_std"
 
-Running a Simulation
+Running the WorkFlow
 --------------------
 
-Once the input file is configured, calculation is invoked with the following command:
+Once the input file is configured, execute the workflow with command:
 
 .. code-block:: bash
 
@@ -65,7 +85,7 @@ Once the input file is configured, calculation is invoked with the following com
 Directory Structure
 -------------------
 
-Running the first calculation cycle, the following directory structure will be created:
+After the first iteration, SPARC creates the following directory structure:
 
 .. code-block:: bash
 
@@ -86,23 +106,22 @@ Running the first calculation cycle, the following directory structure will be c
   │   ├── 01.train
   │   └── 02.dpmd
 
-This layout organizes the outputs in a structured format:
+This layout organizes the outputs as follows:
 
   - **POSCAR /  INCAR**: Standard VASP structure and input file
   - **input.yaml**: User-defined configuration for SPARC execution.
-  - **input.json**: User-defined configuration deepmd-kit ML trainig.
-  - ``Dataset/``: Stores training and validation data for ML training.
-  - **iter_000000, iter_000001, ...**: Iteration folders containing
+  - **input.json**: Configuration DeePMD-kit ML training
+  - ``Dataset``: Stores training and validation data for ML training
+  - **iter_000000, iter_000001, ...**: Iteration folders containing:
 
-    - ``00.dft``: DFT calculations used to label selected structures
-    - ``01.train``: ML model training
-    - ``02.dpmd``: Molecular dynamics simulations using the trained ML potential
+    - ``00.dft``: First-principles calculation
+    - ``01.train``: DeepMD-kit ML model training  
+    - ``02.dpmd``: Molecular dynamics simulations with ML potential  
 
 Each new iteration (e.g., ``iter_000001``, ``iter_000002``, ...) corresponds to an ``active learning cycle``,
-where the potential is refined based on new DFT data and retrained models.    
+in which the potential is refined with additional labelled data and retrained models.    
 
-By default this will write all the information in an output file ``sparc.log``. 
-The contents of ``sparc.log`` will be like this:
+By default SPARC writes all log messages to an output file ``sparc.log``. A sample output file looks like this:
 
 .. code-block:: bash
 
@@ -180,24 +199,8 @@ The contents of ``sparc.log`` will be like this:
   Steps: 490, Epot: -29.717222, Ekin: 0.161525, Temp: 249.92
   ========================================================================
 
-Core Components
----------------
+.. note::
 
-1. MD Simulation
-~~~~~~~~~~~~~~~~
-* Supports both *ab initio* MD (VASP) and DeepPotential based MD
-* NVT ensemble with Nose-Hoover and Langevin thermostat
-* Checkpoint/restart capabilities
-* Seamless integration with PLUMED for PES exploration
-
-2. DeepMD Training
-~~~~~~~~~~~~~~~~~~
-* Automated training pipeline for trainig ML models
-* Supports multi-model ensembles for uncertainty quantification
-* Customizable neural network architecture and training hyperparameters
-
-3. Active Learning
-~~~~~~~~~~~~~~~~~~
-* Implements a `Query-by-Committee` (QbC) strategy for data selection
-* Uses force deviation metrics to identify high-uncertainty configurations
-* Automatically labels new structures with DFT and retrains ML models
+   SPARC integrates three key components: molecular dynamics simulations,
+   ML potential training, and active learning. For a more details, see
+   :ref:`scientific_overview`.
