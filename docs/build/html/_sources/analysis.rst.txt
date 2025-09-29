@@ -1,5 +1,4 @@
-.. .. default-role:: math
-
+.. _AnalysisSection:
 Analysis
 ========
 
