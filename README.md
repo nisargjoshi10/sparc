@@ -240,7 +240,12 @@ Monitor log and output stored in `iter_xxxxxx` directories.
 ## Dcumentation:
 ``` bash
 pip install sphinx sphinx-autodoc-typehints sphinx_rtd_theme
+
+cd docs/
+make html
 ```
+
+This will create a *`html`* file in a **build** folder, open ``index.html`` in any browser.
 
 ## License
 
