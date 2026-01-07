@@ -33,6 +33,8 @@ SPARC is a Python package build around the `ASE` wrapper that implements an auto
 - pandas
 - dpdata
 - cython
+- pandoc
+- nbsphinx
 
 ## Installation
 
@@ -174,24 +176,10 @@ Monitor log and output stored in `iter_xxxxxx` directories.
 - Query by Committee approach for configuration selection
 - Atomic force based error metrics
 - Automated structure labeling and retraining
+
 <!-- 
-## Workflow
-
-1. **Initial AIMD**
-   - Data generation *ab initio* MD using VASP/CP2K
-
-2. **ML Interatomic Potantial (MLIP) Training**
-   - Process AIMD trajectories
-   - Train ensemble of ML models
-   - Freeze and compresses models
-
-3. **ML/MD Simulation**
-   - Run ML/MD using one of the ML model
-   - Monitor atomic force deviations 
-    - **Active Learning with Query-by-Committee**
-      - Identifies structures within the cutoff error in atomic forces
-      - Performs first-principle calculations (labelling)
-      - Retrain models with expanded dataset -->
+conda env create -f environment.yml
+ -->
 
 ## Current Status
 
