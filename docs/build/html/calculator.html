@@ -78,12 +78,13 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">DFT Calculator</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#class-setupdftcalculator">Class : SetupDFTCalculator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#vasp">VASP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cp2k">CP2K</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cp2k">CP2K</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-use">Example Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sparc.src.calculator">API Reference</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#sparc.src.calculator.SetupDFTCalculator"><code class="docutils literal notranslate"><span class="pre">SetupDFTCalculator</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sparc.src.calculator.dft_calculator"><code class="docutils literal notranslate"><span class="pre">dft_calculator()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#example-use">Example Use:</a></li>
 </ul>
 </li>
 </ul>
@@ -121,25 +122,20 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="plumed_wrapper.html">Plumed Integtation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#sprint-collective-variable">SPRINT Collective Variable</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#sprint-collective-variable">SPRINT Collective Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#umbrella-sampling-in-sparc">Umbrella Sampling in SPARC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#yaml-settings-for-umbrella-sampling">YAML Settings for Umbrella Sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#folder-layout-example">Folder Layout Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#example-plumed-file">Example PLUMED File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#output">Output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#api-reference">API Reference</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="plumed_wrapper.html#sparc.src.plumed_wrapper.modify_forces"><code class="docutils literal notranslate"><span class="pre">modify_forces()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#umbrella-sampling-in-sparc">Umbrella Sampling in SPARC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#yaml-settings-for-umbrella-sampling">YAML Settings for Umbrella Sampling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#folder-layout-example">Folder Layout Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#example-plumed-file">Example PLUMED File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#output">Output</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#id1">API Reference</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="plumed_wrapper.html#sparc.src.plumed_wrapper.umbrella"><code class="docutils literal notranslate"><span class="pre">umbrella()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="plumed_wrapper.html#references">References</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#references">References</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
@@ -161,26 +157,36 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">WorkFlow &amp; Analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="analysis.html#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="analysis.html#model-deviation-in-forces">Model deviation in Forces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="analysis.html#api-reference">API Reference:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#id2">Workflow Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#features">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#quick-start">Quick Start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#example-directory-layout">Example Directory Layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#geometry-tab">Geometry Tab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#module-sparc.src.utils.workflow">Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#advanced-analysis">Advanced Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#model-deviation-in-forces">Model Deviation in Forces</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#example-notebooks">Example Notebooks</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#api-references">API References</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotDistribution"><code class="docutils literal notranslate"><span class="pre">PlotDistribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotLcurve"><code class="docutils literal notranslate"><span class="pre">PlotLcurve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotPES"><code class="docutils literal notranslate"><span class="pre">PlotPES()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotPotentialEnergy"><code class="docutils literal notranslate"><span class="pre">PlotPotentialEnergy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotTemp"><code class="docutils literal notranslate"><span class="pre">PlotTemp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.ViewTraj"><code class="docutils literal notranslate"><span class="pre">ViewTraj()</span></code></a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html#dependencies">Dependencies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html#quick-start">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html#example-directory-structure">Example Directory Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html#geometry-tab-details">Geometry Tab Details</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#module-sparc.src.utils.workflow">API Reference:</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#sparc.src.utils.workflow.WorkFlowAnalysis"><code class="docutils literal notranslate"><span class="pre">WorkFlowAnalysis()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -308,72 +314,9 @@ This might seems redundant however, it provides more fexibilty to the users of c
 <p class="admonition-title">Note</p>
 <p>Ensure that the executable path is correctly specified in <code class="docutils literal notranslate"><span class="pre">exe_command</span></code> key inside the <code class="docutils literal notranslate"><span class="pre">yaml</span></code> file.</p>
 </div>
-<dl class="py class" id="module-sparc.src.calculator">
-<dt class="sig sig-object py" id="sparc.src.calculator.SetupDFTCalculator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sparc.src.calculator.</span></span><span class="sig-name descname"><span class="pre">SetupDFTCalculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/calculator.html#SetupDFTCalculator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.calculator.SetupDFTCalculator" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Module to set up DFT calculators using ASE atom objects.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>input_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a>) – Dictionary containing configuration for the DFT calculator.</p></li>
-<li><p><strong>print_screen</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>optional</em>) – Prints input parameters on the output file. [default: False]</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="sparc.src.calculator.SetupDFTCalculator.cp2k">
-<span class="sig-name descname"><span class="pre">cp2k</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/calculator.html#SetupDFTCalculator.cp2k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.calculator.SetupDFTCalculator.cp2k" title="Link to this definition"></a></dt>
-<dd><p>Set up the CP2K calculator.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The configured CP2K calculator object, or None if an error occurs.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>CP2K or None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="sparc.src.calculator.SetupDFTCalculator.vasp">
-<span class="sig-name descname"><span class="pre">vasp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/calculator.html#SetupDFTCalculator.vasp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.calculator.SetupDFTCalculator.vasp" title="Link to this definition"></a></dt>
-<dd><p>Set up the VASP calculator.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The configured VASP calculator object, or None if an error occurs.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>VASP or None</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="sparc.src.calculator.dft_calculator">
-<span class="sig-prename descclassname"><span class="pre">sparc.src.calculator.</span></span><span class="sig-name descname"><span class="pre">dft_calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/calculator.html#dft_calculator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.calculator.dft_calculator" title="Link to this definition"></a></dt>
-<dd><p>Helper function to set up the DFT calculator based on configuration.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><em>dict</em></a>) – Dictionary containing the full DFT configuration.</p></li>
-<li><p><strong>print_screen</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to print the calculator details to the screen.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The configured ASE calculator instance.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ASE Calculator</p>
-</dd>
-</dl>
-</dd></dl>
-
 </section>
 <section id="example-use">
-<h3>Example Use:<a class="headerlink" href="#example-use" title="Link to this heading"></a></h3>
+<h3>Example Use<a class="headerlink" href="#example-use" title="Link to this heading"></a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ase</span><span class="w"> </span><span class="kn">import</span> <span class="n">Atoms</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">ase.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">read</span><span class="p">,</span> <span class="n">write</span>
@@ -441,6 +384,72 @@ This might seems redundant however, it provides more fexibilty to the users of c
 VASP energy (eV): -400.43427628
 </pre></div>
 </div>
+</section>
+<section id="module-sparc.src.calculator">
+<span id="api-reference"></span><h3>API Reference<a class="headerlink" href="#module-sparc.src.calculator" title="Link to this heading"></a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="sparc.src.calculator.SetupDFTCalculator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">sparc.src.calculator.</span></span><span class="sig-name descname"><span class="pre">SetupDFTCalculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/calculator.html#SetupDFTCalculator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.calculator.SetupDFTCalculator" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Module to set up DFT calculators using ASE atom objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – Dictionary containing configuration for the DFT calculator.</p></li>
+<li><p><strong>print_screen</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em>, </em><em>optional</em>) – Prints input parameters on the output file. [default: False]</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sparc.src.calculator.SetupDFTCalculator.cp2k">
+<span class="sig-name descname"><span class="pre">cp2k</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/calculator.html#SetupDFTCalculator.cp2k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.calculator.SetupDFTCalculator.cp2k" title="Link to this definition"></a></dt>
+<dd><p>Set up the CP2K calculator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The configured CP2K calculator object, or None if an error occurs.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>CP2K or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sparc.src.calculator.SetupDFTCalculator.vasp">
+<span class="sig-name descname"><span class="pre">vasp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/calculator.html#SetupDFTCalculator.vasp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.calculator.SetupDFTCalculator.vasp" title="Link to this definition"></a></dt>
+<dd><p>Set up the VASP calculator.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The configured VASP calculator object, or None if an error occurs.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>VASP or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sparc.src.calculator.dft_calculator">
+<span class="sig-prename descclassname"><span class="pre">sparc.src.calculator.</span></span><span class="sig-name descname"><span class="pre">dft_calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_screen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/calculator.html#dft_calculator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.calculator.dft_calculator" title="Link to this definition"></a></dt>
+<dd><p>Helper function to set up the DFT calculator based on configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)"><em>dict</em></a>) – Dictionary containing the full DFT configuration.</p></li>
+<li><p><strong>print_screen</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em>, </em><em>optional</em>) – Whether to print the calculator details to the screen.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The configured ASE calculator instance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ASE Calculator</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 </section>

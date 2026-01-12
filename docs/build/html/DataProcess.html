@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ProcessData &mdash; SPARC 0.1.0 documentation</title>
+  <title>Data Processing &mdash; SPARC 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css?v=f7b18df9" />
@@ -78,12 +78,13 @@
 <li class="toctree-l1"><a class="reference internal" href="calculator.html">DFT Calculator</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="calculator.html#class-setupdftcalculator">Class : SetupDFTCalculator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="calculator.html#vasp">VASP</a></li>
-<li class="toctree-l3"><a class="reference internal" href="calculator.html#cp2k">CP2K</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="calculator.html#cp2k">CP2K</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calculator.html#example-use">Example Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calculator.html#module-sparc.src.calculator">API Reference</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="calculator.html#sparc.src.calculator.SetupDFTCalculator"><code class="docutils literal notranslate"><span class="pre">SetupDFTCalculator</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="calculator.html#sparc.src.calculator.dft_calculator"><code class="docutils literal notranslate"><span class="pre">dft_calculator()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="calculator.html#example-use">Example Use:</a></li>
 </ul>
 </li>
 </ul>
@@ -99,9 +100,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="md.html">Molecular Dynamics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="md.html#overview">Overview</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="md.html#simulation-outputs">Simulation Outputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="md.html#simulation-outputs">Simulation Outputs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="md.html#usage-examples">Usage Examples</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="md.html#sparc.src.ase_md.NoseNVT"><code class="docutils literal notranslate"><span class="pre">NoseNVT()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="md.html#sparc.src.ase_md.LangevinNVT"><code class="docutils literal notranslate"><span class="pre">LangevinNVT()</span></code></a></li>
@@ -111,35 +110,27 @@
 <li class="toctree-l2"><a class="reference internal" href="md.html#references">References</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ProcessData</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#sparc.src.data_processing.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reference">Reference</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Processing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sparc.src.data_processing.get_data"><code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="plumed_wrapper.html">Plumed Integtation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#sprint-collective-variable">SPRINT Collective Variable</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#sprint-collective-variable">SPRINT Collective Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#umbrella-sampling-in-sparc">Umbrella Sampling in SPARC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#yaml-settings-for-umbrella-sampling">YAML Settings for Umbrella Sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#folder-layout-example">Folder Layout Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#example-plumed-file">Example PLUMED File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#output">Output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#api-reference">API Reference</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="plumed_wrapper.html#sparc.src.plumed_wrapper.modify_forces"><code class="docutils literal notranslate"><span class="pre">modify_forces()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#umbrella-sampling-in-sparc">Umbrella Sampling in SPARC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#yaml-settings-for-umbrella-sampling">YAML Settings for Umbrella Sampling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#folder-layout-example">Folder Layout Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#example-plumed-file">Example PLUMED File</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#output">Output</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="plumed_wrapper.html#id1">API Reference</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="plumed_wrapper.html#sparc.src.plumed_wrapper.umbrella"><code class="docutils literal notranslate"><span class="pre">umbrella()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="plumed_wrapper.html#references">References</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="plumed_wrapper.html#references">References</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
@@ -161,26 +152,36 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">WorkFlow &amp; Analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="analysis.html#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="analysis.html#model-deviation-in-forces">Model deviation in Forces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="analysis.html#api-reference">API Reference:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#id2">Workflow Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#features">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#quick-start">Quick Start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#example-directory-layout">Example Directory Layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#geometry-tab">Geometry Tab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#module-sparc.src.utils.workflow">Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#advanced-analysis">Advanced Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#model-deviation-in-forces">Model Deviation in Forces</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#example-notebooks">Example Notebooks</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#api-references">API References</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotDistribution"><code class="docutils literal notranslate"><span class="pre">PlotDistribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotLcurve"><code class="docutils literal notranslate"><span class="pre">PlotLcurve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotPES"><code class="docutils literal notranslate"><span class="pre">PlotPES()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotPotentialEnergy"><code class="docutils literal notranslate"><span class="pre">PlotPotentialEnergy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotTemp"><code class="docutils literal notranslate"><span class="pre">PlotTemp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.ViewTraj"><code class="docutils literal notranslate"><span class="pre">ViewTraj()</span></code></a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html#dependencies">Dependencies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html#quick-start">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html#example-directory-structure">Example Directory Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html#geometry-tab-details">Geometry Tab Details</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#module-sparc.src.utils.workflow">API Reference:</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#sparc.src.utils.workflow.WorkFlowAnalysis"><code class="docutils literal notranslate"><span class="pre">WorkFlowAnalysis()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -201,7 +202,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">ProcessData</li>
+      <li class="breadcrumb-item active">Data Processing</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/DataProcess.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -212,9 +213,7 @@
            <div itemprop="articleBody">
              
   <section id="module-data_processing">
-<span id="processdata"></span><h1>ProcessData<a class="headerlink" href="#module-data_processing" title="Link to this heading"></a></h1>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<span id="data-processing"></span><h1>Data Processing<a class="headerlink" href="#module-data_processing" title="Link to this heading"></a></h1>
 <p>Process data from ASE trajectory object.</p>
 <dl class="py function" id="module-sparc.src.data_processing">
 <dt class="sig sig-object py" id="sparc.src.data_processing.get_data">
@@ -223,7 +222,7 @@
 The training data consists of 80% of the frames, and the validation data consists of 20%.
 The data is then saved in the specified directory <code class="docutils literal notranslate"><span class="pre">data_dir</span></code> in the <code class="docutils literal notranslate"><span class="pre">.npy</span></code> format.</p>
 <section id="args">
-<h3>Args:<a class="headerlink" href="#args" title="Link to this heading"></a></h3>
+<h2>Args:<a class="headerlink" href="#args" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt>ase_traj (str):</dt><dd><p>ASE trajectory file name (default: <code class="docutils literal notranslate"><span class="pre">AseMD.traj</span></code>).</p>
 </dd>
@@ -243,9 +242,8 @@ The data is then saved in the specified directory <code class="docutils literal 
 </dd></dl>
 
 <section id="reference">
-<h3>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h3>
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading"></a></h2>
 <p>Check <a class="reference external" href="https://docs.deepmodeling.com/projects/dpdata/en/master/index.html">dpdata</a> for more details.</p>
-</section>
 </section>
 </section>
 

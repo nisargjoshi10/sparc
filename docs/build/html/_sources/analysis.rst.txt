@@ -1,7 +1,7 @@
 .. _workflow_analysis:
 
-WorkFlow & Analysis
-===================
+Simulation Monitoring & Analysis
+================================
 
 Overview
 --------

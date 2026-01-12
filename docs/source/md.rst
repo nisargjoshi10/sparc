@@ -15,7 +15,7 @@ It currently supports the NVT ensemble with ``Langevin`` thermostat or the ``Nos
 Each ML/MD iteration is saved in the corresponding ``iter_0000xx/02.dpmd`` directory, which includes the simulation log (``log_file``), the trajectory of atomic positions (``extxyz`` or ``traj``).  It also write a checkpoint file to restart long simulations.
 
 Simulation Outputs
-==================
+-----------------
 
 .. code-block:: bash
 

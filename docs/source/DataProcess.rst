@@ -1,10 +1,10 @@
-ProcessData
-===========
+Data Processing
+===============
 
 .. module:: data_processing
 
-Overview
-^^^^^^^^
+.. Overview
+.. ^^^^^^^^
 
 Process data from ASE trajectory object.
 

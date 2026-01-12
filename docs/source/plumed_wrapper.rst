@@ -58,15 +58,15 @@ adjency matrix and its corresponding eigenvector, `\bf{V}`, using:
     as this approach offers efficient, self-guided exploration of complex chemical and configurational spaces.
 
 
-API Reference
-*************
+.. API Reference
+.. *************
 
-.. .. autofunction:: sparc.src.plumed_wrapper.modify_forces
+.. .. .. autofunction:: sparc.src.plumed_wrapper.modify_forces
 
-.. automodule:: sparc.src.plumed_wrapper
-   :members: modify_forces
-   :undoc-members:
-   :show-inheritance:
+.. .. automodule:: sparc.src.plumed_wrapper
+..     :members: modify_forces
+..     :undoc-members:
+..     :show-inheritance:
 
 
 The :func:`modify_forces` function provides the mechanism to wrap any ASE calculator with PLUMED:
@@ -86,7 +86,7 @@ SPARC supports **umbrella sampling**, where a system is restrained in successive
 Each window samples a different region of phase space, and the results are later combined (e.g., using WHAM or MBAR) to reconstruct the free energy profile.
 
 YAML Settings for Umbrella Sampling
------------------------------------
+***********************************
 
 Enable PLUMED in the DeepMD section and point to an umbrella config file. The keys below are the minimal set typically needed for ML-MD umbrella runs.
 
@@ -116,7 +116,7 @@ Enable PLUMED in the DeepMD section and point to an umbrella config file. The ke
 
 
 Folder Layout Example
----------------------
+*********************
 
 A typical setup for umbrella sampling with ``SPARC`` requires a ``umbrella_sampling.yaml`` file with window and structire defintions and a directory containing all the files similar to this,
 
@@ -130,7 +130,7 @@ A typical setup for umbrella sampling with ``SPARC`` requires a ``umbrella_sampl
 Each ``POSCAR_x.x`` defines the starting structure for that particlar window, and each ``plumed_wx.x.dat`` contains the corresponding restraint on the CV.
 
 Example PLUMED File
--------------------
+*******************
 
 For umbrella sampling, each PLUMED file typically defines a CV, a harmonic restraint and mean position for that particular window.
 
@@ -159,7 +159,7 @@ For umbrella sampling, each PLUMED file typically defines a CV, a harmonic restr
     PRINT ARG=d1,d2,d3,d4,rest.bias STRIDE=3 FILE=COLVAR
 
 Output
-------
+******
 
 When umbrella sampling is enabled:
 - SPARC creates a **separate window folder run per window** (individual folders),
@@ -219,7 +219,12 @@ When umbrella sampling is enabled:
 API Reference
 *************
 
-.. autofunction:: sparc.src.plumed_wrapper.umbrella
+.. .. autofunction:: sparc.src.plumed_wrapper.umbrella
+
+.. automodule:: sparc.src.plumed_wrapper
+    :members: umbrella, modify_forces
+    :undoc-members:
+    :show-inheritance:
 
 .. Function:
 .. ~~~~~~~~~
@@ -237,7 +242,7 @@ API Reference
 
 
 References
-~~~~~~~~~~
+----------
 
 - Torrie, G. M. & Valleau, J. P. *Monte Carlo free energy estimates using non-Boltzmann sampling: Application to the sub-critical Lennard-Jones fluid.* Chem. Phys. Lett. **28**, 578-581 (1974).  
 - Pfaendtner, J. & Bonomi, M. *Efficient sampling of high-dimensional free energy landscapes with Parallel Bias Metadynamics.* J. Chem. Theory Comput. **11**, 5062-5067 (2015).
@@ -247,5 +252,5 @@ References
 
 .. _plumed: https://www.plumed.org/
 .. _asePlumed: https://ase-lib.org/ase/calculators/plumed.html
-.. _pbmetad:: https://www.plumed.org/doc-v2.9/user-doc/html/_p_b_m_e_t_a_d.html
+.. _pbmetad: https://www.plumed.org/doc-v2.9/user-doc/html/_p_b_m_e_t_a_d.html
 .. _sprint: http://dx.doi.org/10.1103/PhysRevLett.107.085504

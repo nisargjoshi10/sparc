@@ -117,16 +117,8 @@ A minimal ``CP2K`` input template file (``cp2k_template.inp``) is given below,
 .. note:: 
     Ensure that the executable path is correctly specified in ``exe_command`` key inside the ``yaml`` file.
 
-
-.. automodule:: sparc.src.calculator
-  :members: SetupDFTCalculator, dft_calculator
-  :exclude-members: orca, xtb
-  :undoc-members:
-  :show-inheritance:
-
-
-Example Use:
-------------
+Example Use
+-----------
 
 .. code-block:: python
 
@@ -197,3 +189,12 @@ output:
     [SPARC][INFO] ==================================================
 
     VASP energy (eV): -400.43427628
+
+API Reference
+-------------
+
+.. automodule:: sparc.src.calculator
+  :members: SetupDFTCalculator, dft_calculator
+  :exclude-members: orca, xtb
+  :undoc-members:
+  :show-inheritance:    

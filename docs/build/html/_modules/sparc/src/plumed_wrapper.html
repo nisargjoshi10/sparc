@@ -74,28 +74,37 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../calculator.html">DFT Calculator</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../calculator.html#class-setupdftcalculator">Class : SetupDFTCalculator</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../calculator.html#function">function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../calculator.html#vasp">VASP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../calculator.html#cp2k">CP2K</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../calculator.html#sparc.src.calculator.SetupDFTCalculator"><code class="docutils literal notranslate"><span class="pre">SetupDFTCalculator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../calculator.html#sparc.src.calculator.dft_calculator"><code class="docutils literal notranslate"><span class="pre">dft_calculator()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../calculator.html#example-use">Example Use:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../deepmd.html">DeepMD Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../deepmd.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../deepmd.html#usage-example">Usage Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../deepmd.html#module-contents">Module Contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../deepmd.html">DeePMD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../deepmd.html#sparc.src.deepmd.setup_DeepPotential"><code class="docutils literal notranslate"><span class="pre">setup_DeepPotential()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../deepmd.html#example-evaluate-a-frozen-model">Example: Evaluate a Frozen Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../deepmd.html#sparc.src.deepmd.evaluate_model_accuracy"><code class="docutils literal notranslate"><span class="pre">evaluate_model_accuracy()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../deepmd.html#references">References</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../md.html">Molecular Dynamics</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../md.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../md.html#features">Features:</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../md.html#module-contents">Module Contents</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../md.html#functions">Functions:</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../md.html#sparc.src.ase_md.NoseNVT"><code class="docutils literal notranslate"><span class="pre">NoseNVT()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../md.html#sparc.src.ase_md.LangevinNVT"><code class="docutils literal notranslate"><span class="pre">LangevinNVT()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../md.html#usage-examples">Usage Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../md.html#simulation-outputs">Simulation Outputs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../md.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../md.html#sparc.src.ase_md.NoseNVT"><code class="docutils literal notranslate"><span class="pre">NoseNVT()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../md.html#sparc.src.ase_md.LangevinNVT"><code class="docutils literal notranslate"><span class="pre">LangevinNVT()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../md.html#sparc.src.ase_md.ExecuteAbInitioDynamics"><code class="docutils literal notranslate"><span class="pre">ExecuteAbInitioDynamics()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../md.html#references">References</a></li>
 </ul>
 </li>
@@ -107,35 +116,73 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../plumed_wrapper.html">Plumed</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../plumed_wrapper.html#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../plumed_wrapper.html#sparc.src.plumed_wrapper.modify_forces"><code class="docutils literal notranslate"><span class="pre">modify_forces()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../plumed_wrapper.html#sparc.src.plumed_wrapper.umbrella"><code class="docutils literal notranslate"><span class="pre">umbrella()</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plumed_wrapper.html">Plumed Integtation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plumed_wrapper.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plumed_wrapper.html#sprint-collective-variable">SPRINT Collective Variable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plumed_wrapper.html#umbrella-sampling-in-sparc">Umbrella Sampling in SPARC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plumed_wrapper.html#yaml-settings-for-umbrella-sampling">YAML Settings for Umbrella Sampling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plumed_wrapper.html#folder-layout-example">Folder Layout Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plumed_wrapper.html#example-plumed-file">Example PLUMED File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plumed_wrapper.html#output">Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plumed_wrapper.html#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plumed_wrapper.html#sparc.src.plumed_wrapper.modify_forces"><code class="docutils literal notranslate"><span class="pre">modify_forces()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plumed_wrapper.html#sparc.src.plumed_wrapper.umbrella"><code class="docutils literal notranslate"><span class="pre">umbrella()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../analysis.html">Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../analysis.html#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../analysis.html#model-deviation-in-forces">Model deviation in Forces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../analysis.html#function">Function:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plumed_wrapper.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorial.html#ammonia-borate-nh-3bh-3">Ammonia Borate (NH<span class="math notranslate nohighlight">\(_3\)</span>BH<span class="math notranslate nohighlight">\(_3\)</span>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorial.html#introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorial.html#preparation">Preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorial.html#execute-sparc">Execute SPARC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorial.html#training-ml-models">Training ML Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorial.html#running-ml-md">Running ML/MD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorial.html#active-learning-loop">Active Learning Loop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorial.html#monitor-workflow">Monitor Workflow</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorial.html#plumed-plugin">PLUMED Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../tutorial.html#next-step">Next Step</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../workflow.html">Workflow</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../workflow.html#function">Function:</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../workflow.html#sparc.src.utils.workflow.WorkFlowAnalysis"><code class="docutils literal notranslate"><span class="pre">WorkFlowAnalysis()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../workflow.html#features">Features</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../workflow.html#dependencies">Dependencies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../workflow.html#quick-start">Quick Start</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../workflow.html#example-directory-structure">Example Directory Structure</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../workflow.html#geometry-tab-details">Geometry Tab Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../analysis.html">WorkFlow &amp; Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../analysis.html#overview">Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../analysis.html#id2">Workflow Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#features">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#quick-start">Quick Start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#example-directory-layout">Example Directory Layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#geometry-tab">Geometry Tab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#module-sparc.src.utils.workflow">Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../analysis.html#advanced-analysis">Advanced Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#model-deviation-in-forces">Model Deviation in Forces</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../analysis.html#example-notebooks">Example Notebooks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../analysis.html#api-references">API References</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#sparc.src.utils.plot_utils.PlotDistribution"><code class="docutils literal notranslate"><span class="pre">PlotDistribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#sparc.src.utils.plot_utils.PlotLcurve"><code class="docutils literal notranslate"><span class="pre">PlotLcurve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#sparc.src.utils.plot_utils.PlotPES"><code class="docutils literal notranslate"><span class="pre">PlotPES()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#sparc.src.utils.plot_utils.PlotPotentialEnergy"><code class="docutils literal notranslate"><span class="pre">PlotPotentialEnergy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#sparc.src.utils.plot_utils.PlotTemp"><code class="docutils literal notranslate"><span class="pre">PlotTemp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../analysis.html#sparc.src.utils.plot_utils.ViewTraj"><code class="docutils literal notranslate"><span class="pre">ViewTraj()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -195,11 +242,10 @@
 <span class="sd">    This function reads a PLUMED input file and wraps an existing ASE calculator</span>
 <span class="sd">    to apply biasing forces during MD. Useful for enhanced sampling simulations.</span>
 
-<span class="sd">    For more information, see the ASE documentation:</span>
-<span class="sd">    https://wiki.fysik.dtu.dk/ase/ase/calculators/plumed.html#module-ase.calculators.plumed</span>
+<span class="sd">    For more information, see the ASE documentation: https://wiki.fysik.dtu.dk/ase/ase/calculators/plumed.html#module-ase.calculators.plumed</span>
 
 <span class="sd">    Parameters:</span>
-<span class="sd">    ----------</span>
+<span class="sd">    -----------</span>
 <span class="sd">    calculator : ase.calculators.Calculator</span>
 <span class="sd">        The underlying ASE calculator for the system (e.g., VASP, CP2K)</span>
 <span class="sd">    system : ase.Atoms</span>
@@ -214,7 +260,7 @@
 <span class="sd">        Path to the PLUMED input file (e.g., &quot;plumed.dat&quot;)</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">    -------</span>
+<span class="sd">    --------</span>
 <span class="sd">    plumed_calc : ase.calculators.plumed.Plumed</span>
 <span class="sd">        The PLUMED-wrapped ASE calculator, ready for molecular dynamics simulations.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -264,6 +310,8 @@
 <span class="sd">    restraining force to a coordinate for each window.</span>
 
 <span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    </span>
 <span class="sd">    config : dict   </span>
 <span class="sd">        The configuration dictionary containing the umbrella sampling parameters.</span>
 <span class="sd">    iter_structure : dict</span>
@@ -272,6 +320,8 @@
 <span class="sd">        The base directory for the umbrella sampling simulations.</span>
 
 <span class="sd">    Returns:    </span>
+<span class="sd">    --------</span>
+<span class="sd">    </span>
 <span class="sd">    None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Open the PLUMED input file and read its contents</span>
