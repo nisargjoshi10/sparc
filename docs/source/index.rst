@@ -7,12 +7,30 @@
    .. tests/index
    .. contributing
 
+.. .. raw:: html
+
+..    <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+..       <img src="_static/sparc_logo.png" alt="SPARC Logo" style="height: 150px; object-fit: contain;">
+..       <span style="font-size: 1.5em; font-weight: bold;">Welcome to SPARC's documentation!</span>
+..    </div>
 .. raw:: html
 
-   <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
+   <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 30px;">
       <img src="_static/sparc_logo.png" alt="SPARC Logo" style="height: 150px; object-fit: contain;">
-      <span style="font-size: 1.5em; font-weight: bold;">Welcome to SPARC's documentation!</span>
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+         <span style="font-size: 1.5em; font-weight: bold;">
+            Welcome to SPARC's documentation!
+         </span>
+
+         <a href="https://github.com/rahulumrao/sparc" target="_blank">
+         <img src="https://img.shields.io/badge/GitHub-blue?logo=github"
+         alt="GitHub"
+         style="height: 28px;">
+         </a>
+      </div>
    </div>
+
 
 
 .. Welcome to SPARC's documentation!
