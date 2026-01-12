@@ -163,26 +163,36 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="analysis.html">Analysis</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">WorkFlow &amp; Analysis</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="analysis.html#overview">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="analysis.html#model-deviation-in-forces">Model deviation in Forces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="analysis.html#api-reference">API Reference:</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#id2">Workflow Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#features">Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#quick-start">Quick Start</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#example-directory-layout">Example Directory Layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#geometry-tab">Geometry Tab</a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#module-sparc.src.utils.workflow">Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#advanced-analysis">Advanced Analysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#model-deviation-in-forces">Model Deviation in Forces</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#example-notebooks">Example Notebooks</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html">[1] Workflow Analysis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="notebooks/analysisAmmoniaBorate.html#[2]-Free-Energy-Analysis">[2] Free Energy Analysis</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="analysis.html#api-references">API References</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotDistribution"><code class="docutils literal notranslate"><span class="pre">PlotDistribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotForceDeviation"><code class="docutils literal notranslate"><span class="pre">PlotForceDeviation()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotLcurve"><code class="docutils literal notranslate"><span class="pre">PlotLcurve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotPES"><code class="docutils literal notranslate"><span class="pre">PlotPES()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotPotentialEnergy"><code class="docutils literal notranslate"><span class="pre">PlotPotentialEnergy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.PlotTemp"><code class="docutils literal notranslate"><span class="pre">PlotTemp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="analysis.html#sparc.src.utils.plot_utils.ViewTraj"><code class="docutils literal notranslate"><span class="pre">ViewTraj()</span></code></a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html#dependencies">Dependencies</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html#quick-start">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html#example-directory-structure">Example Directory Structure</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html#geometry-tab-details">Geometry Tab Details</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#module-sparc.src.utils.workflow">API Reference:</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="workflow.html#sparc.src.utils.workflow.WorkFlowAnalysis"><code class="docutils literal notranslate"><span class="pre">WorkFlowAnalysis()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -256,7 +266,7 @@ as this approach offers efficient, self-guided exploration of complex chemical a
 </div>
 <section id="api-reference">
 <h3>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h3>
-<dl class="py function">
+<dl class="py function" id="module-sparc.src.plumed_wrapper">
 <dt class="sig sig-object py" id="sparc.src.plumed_wrapper.modify_forces">
 <span class="sig-prename descclassname"><span class="pre">sparc.src.plumed_wrapper.</span></span><span class="sig-name descname"><span class="pre">modify_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">calculator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kT</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">restart</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plumed_input</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PlumedLog</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'PLUMED.log'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sparc/src/plumed_wrapper.html#modify_forces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sparc.src.plumed_wrapper.modify_forces" title="Link to this definition"></a></dt>
 <dd><p>Set up and return a PLUMED wrapped ASE calculator for a molecular dynamics (MD) run.</p>
@@ -291,7 +301,7 @@ plumed_calc : ase.calculators.plumed.Plumed</p>
 </section>
 </dd></dl>
 
-<p>The <code class="xref py py-func docutils literal notranslate"><span class="pre">modify_forces()</span></code> function provides the mechanism to wrap any ASE calculator with PLUMED:</p>
+<p>The <a class="reference internal" href="#sparc.src.plumed_wrapper.modify_forces" title="sparc.src.plumed_wrapper.modify_forces"><code class="xref py py-func docutils literal notranslate"><span class="pre">modify_forces()</span></code></a> function provides the mechanism to wrap any ASE calculator with PLUMED:</p>
 <ul class="simple">
 <li><p>Reads the user-defined PLUMED input file (<code class="docutils literal notranslate"><span class="pre">plumed.dat</span></code>),</p></li>
 <li><p>Returns the PLUMED-wrapped calculator ready for MD.</p></li>

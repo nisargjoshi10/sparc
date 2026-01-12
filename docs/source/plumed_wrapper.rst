@@ -61,7 +61,13 @@ adjency matrix and its corresponding eigenvector, `\bf{V}`, using:
 API Reference
 *************
 
-.. autofunction:: sparc.src.plumed_wrapper.modify_forces
+.. .. autofunction:: sparc.src.plumed_wrapper.modify_forces
+
+.. automodule:: sparc.src.plumed_wrapper
+   :members: modify_forces
+   :undoc-members:
+   :show-inheritance:
+
 
 The :func:`modify_forces` function provides the mechanism to wrap any ASE calculator with PLUMED:
 
