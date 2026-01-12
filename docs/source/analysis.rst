@@ -148,6 +148,12 @@ API References
 
 .. .. autofunction:: sparc.src.utils.plot_utils.PlotForceDeviation
 
+.. .. automodule:: sparc.src.utils.plot_utils
+..     :members: PlotForceDeviation, PlotLcurve, PlotPotentialEnergy, PlotDistribution, PlotPES, PlotTemp, ViewTraj
+
 .. automodule:: sparc.src.utils.plot_utils
-    :members: PlotForceDeviation, PlotLcurve, PlotPotentialEnergy, PlotDistribution, PlotPES, PlotTemp, ViewTraj
+  :members: PlotForceDeviation, PlotLcurve, PlotPotentialEnergy, PlotDistribution, PlotPES, PlotTemp, ViewTraj
+  :exclude-members:
+  :undoc-members:
+  :show-inheritance:       
 
