@@ -6,15 +6,12 @@
 [![GitHub forks](https://img.shields.io/github/forks/rahulumrao/sparc?style=social)](https://github.com/rahulumrao/sparc/network/members)
 [![Documentation Status](https://readthedocs.org/projects/sparc/badge/)](https://docs-sparc.readthedocs.io/en/latest/)
 
-
-
-
-
 **S**mart **P**otential with **A**tomistic **R**are Events and **C**ontinuous Learning
 
 <!-- ![Alt text](docs/source/sparc_logo.png) -->
 <img src="docs/source/sparc_logo.png" alt="drawing" style="width:300px;"/>
 
+For More Information, Please Visit [SPARC Documentation](https://docs-sparc.readthedocs.io/en/latest/).
 
 ## Overview
 
