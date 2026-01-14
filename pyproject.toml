@@ -44,12 +44,12 @@ include-package-data = true
 where = ["."]
 include = ["sparc", "sparc.*"]
 
-# Don’t lint compiled stuff 
+# Ruff related stuff
+# Don’t lint compiled files and non-software related
 [tool.ruff]
 line-length = 88
 target-version = "py310"
 
-# Since your package is a flat layout (top-level sparc/):
 src = ["sparc"]
 exclude = [
   ".git",
@@ -62,7 +62,6 @@ exclude = [
   "sparc/src/utils/chemview.py",
 ]
 
-#xtend-select = ["E", "F", "W"]
 [tool.ruff.lint]
 extend-select = [
   "I",    # import sorting
