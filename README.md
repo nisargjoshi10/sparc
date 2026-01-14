@@ -232,7 +232,7 @@ conda env create -f environment.yml
 > -  └─ __cuda, which is missing on the system.
 > ```
 
-## Dcumentation:
+## Build Document Locally:
 ``` bash
 pip install sphinx sphinx-autodoc-typehints sphinx_rtd_theme
 
