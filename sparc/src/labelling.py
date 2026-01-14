@@ -53,7 +53,7 @@ def labelling(trajfile, outfile, min_lim, max_lim, output_dir=None):
         "avg_devi_f",
         "dev_e",
     ]
-    data = pd.read_csv(outfile, sep="\s+", comment="#", names=names)
+    data = pd.read_csv(outfile, sep=r"\s+", comment="#", names=names)
 
     # Set default deviation limits if not provided
     if min_lim is None or max_lim is None:
