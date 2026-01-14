@@ -3,5 +3,6 @@ __pychache__/
 *.py[cod]
 *.egg
 *.egg-info/
+.git/
 dist/
 build/

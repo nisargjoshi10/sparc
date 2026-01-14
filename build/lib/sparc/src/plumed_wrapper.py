@@ -24,10 +24,11 @@ def modify_forces(calculator, system, timestep, kT, restart, plumed_input, itera
     This function reads a PLUMED input file and wraps an existing ASE calculator
     to apply biasing forces during MD. Useful for enhanced sampling simulations.
 
-    For more information, see the ASE documentation: https://wiki.fysik.dtu.dk/ase/ase/calculators/plumed.html#module-ase.calculators.plumed
+    For more information, see the ASE documentation:
+    https://wiki.fysik.dtu.dk/ase/ase/calculators/plumed.html#module-ase.calculators.plumed
 
     Parameters:
-    -----------
+    ----------
     calculator : ase.calculators.Calculator
         The underlying ASE calculator for the system (e.g., VASP, CP2K)
     system : ase.Atoms
@@ -42,7 +43,7 @@ def modify_forces(calculator, system, timestep, kT, restart, plumed_input, itera
         Path to the PLUMED input file (e.g., "plumed.dat")
 
     Returns:
-    --------
+    -------
     plumed_calc : ase.calculators.plumed.Plumed
         The PLUMED-wrapped ASE calculator, ready for molecular dynamics simulations.
     """
@@ -89,8 +90,6 @@ def umbrella(config, us_dir, dp_path, dp_model):
     restraining force to a coordinate for each window.
 
     Parameters:
-    -----------
-    
     config : dict   
         The configuration dictionary containing the umbrella sampling parameters.
     iter_structure : dict
@@ -99,8 +98,6 @@ def umbrella(config, us_dir, dp_path, dp_model):
         The base directory for the umbrella sampling simulations.
 
     Returns:    
-    --------
-    
     None
     """
     # Open the PLUMED input file and read its contents
