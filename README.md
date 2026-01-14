@@ -232,7 +232,7 @@ conda env create -f environment.yml
 > -  └─ __cuda, which is missing on the system.
 > ```
 
-## Build Document Locally:
+## Build Document Locally
 ``` bash
 pip install sphinx sphinx-autodoc-typehints sphinx_rtd_theme
 
@@ -251,6 +251,21 @@ This project is licensed under the [MIT License](./LICENSE).
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+### Code Style and Linting
+
+We used [`ruff`](https://docs.astral.sh/ruff/) and [`pre-commit`](https://pre-commit.com/) for code styling and linting to keep the database consistant. Configurations are defined inside the `pyproject.toml` and `.pre-commit-config.yaml` file.
+
+```bash
+pip install ruff
+pip install pre-commit
+```
+
+After installation, run all hooks
+
+```bash
+pre-commit run --all-files
+```
 
 ---
 > [!WARNING]
