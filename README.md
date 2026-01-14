@@ -67,7 +67,7 @@ conda install deepmd-kit=2.2.10=*gpu libdeepmd=2.2.10=*gpu lammps horovod -c htt
 
 3. Clone repository and install pacakge:
 ```bash
-git clone https://github.com/rahulumrao/sparc.git
+git clone --depth 1 https://github.com/rahulumrao/sparc.git
 cd sparc
 pip install .
 ```

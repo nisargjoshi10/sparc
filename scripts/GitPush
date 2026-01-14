@@ -1,0 +1,4 @@
+#!/bin/bash
+
+find . -type d -name __pycache__ -prune -exec rm -rf {} +
+git add . && git commit -m 'doc' && git push -f origin main
