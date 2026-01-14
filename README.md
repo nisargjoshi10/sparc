@@ -254,7 +254,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ### Code Style and Linting
 
-We used [`ruff`](https://docs.astral.sh/ruff/) and [`pre-commit`](https://pre-commit.com/) for code styling and linting to keep the database consistant. Configurations are defined inside the [`pyproject.toml`](pyproject.toml) and [`.pre-commit-config.yaml`](.pre-commit-config.yaml) file.
+We used [`ruff`](https://docs.astral.sh/ruff/) and [`pre-commit`](https://pre-commit.com/) for code styling and linting to keep the database consistant. Configurations are defined inside the [`pyproject.toml`](pyproject.toml) and [`pre-commit-config.yaml`](pre-commit-config.yaml) file.
 
 ```bash
 pip install ruff
