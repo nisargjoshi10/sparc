@@ -1,32 +1,35 @@
 #!/usr/bin/python3
 # ase_md.py
 # Standard library imports
-import os
 import subprocess
-import numpy as np
+
 ################################################################
 # Third party imports
 import ase.units
+import numpy as np
 from ase import Atoms
-from ase.md.verlet import VelocityVerlet
-from ase.md.velocitydistribution import MaxwellBoltzmannDistribution
-from ase.md.nose_hoover_chain import NoseHooverChainNVT
-from ase.md.langevin import Langevin
 from ase.md import MDLogger
+from ase.md.langevin import Langevin
+from ase.md.nose_hoover_chain import NoseHooverChainNVT
+from ase.md.velocitydistribution import MaxwellBoltzmannDistribution
+from ase.md.verlet import VelocityVerlet
+
 ################################################################
 # Local imports
 from sparc.src.utils.logger import SparcLog
 from sparc.src.utils.utils import (
-    log_md_setup,
-    save_xyz,
-    save_checkpoint,
+    check_physical_limits,
     load_checkpoint,
-    check_physical_limits
+    log_md_setup,
+    save_checkpoint,
+    save_xyz,
 )
+
+
 ################################################################
-#===================================================================================================#
+# ===================================================================================================#
 # Helper Functions
-#===================================================================================================#
+# ===================================================================================================#
 def initialize_dynamics(atoms, dyn_class, timestep, temperature, restart, **kwargs):
     """
     Initialize MD dynamics, optionally restarting from a checkpoint.
@@ -51,7 +54,7 @@ def initialize_dynamics(atoms, dyn_class, timestep, temperature, restart, **kwar
     dyn : instance of dyn_class
         The initialized dynamics object.
     """
-    checkpoint_file = kwargs.get('checkpoint_file', 'md_checkpoint.pkl')
+    checkpoint_file = kwargs.get("checkpoint_file", "md_checkpoint.pkl")
 
     if restart:
         atoms, mdstep = load_checkpoint(atoms, checkpoint_file)
@@ -63,9 +66,10 @@ def initialize_dynamics(atoms, dyn_class, timestep, temperature, restart, **kwar
 
     return dyn
 
-#===================================================================================================#
+
+# ===================================================================================================#
 # Thermostat Functions
-#===================================================================================================#
+# ===================================================================================================#
 def NoseNVT(atoms, timestep=1, temperature=300, tdamp=10, restart=False):
     """
     Set up a Nose-Hoover chain NVT thermostat for MD simulation.
@@ -89,7 +93,12 @@ def NoseNVT(atoms, timestep=1, temperature=300, tdamp=10, restart=False):
         The initialized dynamics object using the Nose-Hoover chain thermostat.
     """
     return initialize_dynamics(
-        atoms, NoseHooverChainNVT, timestep * ase.units.fs, temperature, restart, tdamp=tdamp * ase.units.fs
+        atoms,
+        NoseHooverChainNVT,
+        timestep * ase.units.fs,
+        temperature,
+        restart,
+        tdamp=tdamp * ase.units.fs,
     )
 
 
@@ -116,13 +125,21 @@ def LangevinNVT(atoms, timestep=1, temperature=300, friction=0.01, restart=False
         The initialized dynamics object using the Langevin thermostat.
     """
     return initialize_dynamics(
-        atoms, Langevin, timestep * ase.units.fs, temperature, restart, friction=friction / ase.units.fs
+        atoms,
+        Langevin,
+        timestep * ase.units.fs,
+        temperature,
+        restart,
+        friction=friction / ase.units.fs,
     )
 
-#===================================================================================================#
+
+# ===================================================================================================#
 # MD Execution Functions
-#===================================================================================================#
-def ExecuteAbInitioDynamics(system, dyn, steps, pace, log_filename, trajfile, dir_name, name):
+# ===================================================================================================#
+def ExecuteAbInitioDynamics(
+    system, dyn, steps, pace, log_filename, trajfile, dir_name, name
+):
     """
     Run an ab initio MD simulation.
 
@@ -158,18 +175,34 @@ def ExecuteAbInitioDynamics(system, dyn, steps, pace, log_filename, trajfile, di
 
     dyn.attach(lambda: save_checkpoint(dyn, system), interval=pace)
     dyn.attach(lambda: log_md_setup(dyn, system, dir_name), interval=pace)
-    dyn.attach(lambda: save_xyz(system, trajfile, 'a', dir_name), interval=pace)
+    dyn.attach(lambda: save_xyz(system, trajfile, "a", dir_name), interval=pace)
 
     logger = MDLogger(
-        dyn=dyn, atoms=system, logfile=f"{dir_name}/{log_filename}",
-        header=True, stress=False, peratom=False, mode='a'
+        dyn=dyn,
+        atoms=system,
+        logfile=f"{dir_name}/{log_filename}",
+        header=True,
+        stress=False,
+        peratom=False,
+        mode="a",
     )
     dyn.attach(logger, interval=pace)
 
     dyn.run(steps)
 
 
-def ExecuteMlpDynamics(system, dyn, steps, pace, log_filename, trajfile, dir_name, distance_metrics, name, epot_threshold):
+def ExecuteMlpDynamics(
+    system,
+    dyn,
+    steps,
+    pace,
+    log_filename,
+    trajfile,
+    dir_name,
+    distance_metrics,
+    name,
+    epot_threshold,
+):
     """
     Run a Deep Potential MD simulation.
 
@@ -203,28 +236,38 @@ def ExecuteMlpDynamics(system, dyn, steps, pace, log_filename, trajfile, dir_nam
     SparcLog("=" * 72 + "\n")
 
     dyn.attach(lambda: log_md_setup(dyn, system, dir_name), interval=pace)
-    dyn.attach(lambda: save_xyz(system, trajfile, 'a', dir_name), interval=pace)
+    dyn.attach(lambda: save_xyz(system, trajfile, "a", dir_name), interval=pace)
 
     logger = MDLogger(
-        dyn=dyn, atoms=system, logfile=f"{dir_name}/{log_filename}",
-        header=True, stress=False, peratom=False, mode='a'
+        dyn=dyn,
+        atoms=system,
+        logfile=f"{dir_name}/{log_filename}",
+        header=True,
+        stress=False,
+        peratom=False,
+        mode="a",
     )
     dyn.attach(logger, interval=pace)
-    
+
     # Store reference energy for comparison
     epot_ref = None
     for step in range(steps):
         dyn.run(1)
-        
+
         # Check if physical limits are exceeded
         if distance_metrics and check_physical_limits(system, distance_metrics):
-            SparcLog("Physical limits exceeded. Stopping MLMD simulation!!!", level="WARNING")
+            SparcLog(
+                "Physical limits exceeded. Stopping MLMD simulation!!!", level="WARNING"
+            )
             break
-        
+
         # Check if the Potential Energy becomes undefined
         epot = np.array(system.get_potential_energy())
         if np.isnan(epot):
-            SparcLog("Potential Energy is Nan! || Stopping MLMD simulation !!!\n", level="ERROR")
+            SparcLog(
+                "Potential Energy is Nan! || Stopping MLMD simulation !!!\n",
+                level="ERROR",
+            )
             break
 
         # Store reference energy in the first step
@@ -239,7 +282,9 @@ def ExecuteMlpDynamics(system, dyn, steps, pace, log_filename, trajfile, dir_nam
             SparcLog(f"{f'[Iteration: {dir_name}]':^72}", level="ERROR")
             SparcLog("Potential Energy Exceeded Limit:", level="ERROR")
             SparcLog(f"Reference Energy  : {float(epot_ref): .2f} eV", level="ERROR")
-            SparcLog(f"Threshold Energy  : {float(epot_threshold): .2f} eV", level="ERROR")
+            SparcLog(
+                f"Threshold Energy  : {float(epot_threshold): .2f} eV", level="ERROR"
+            )
             SparcLog(f"Lower_limit       : {float(Llim): .2f} eV", level="ERROR")
             SparcLog(f"Upper_limit       : {float(Ulim): .2f} eV", level="ERROR")
             SparcLog(f"Current Energy    : {float(epot): .2f} eV", level="ERROR")
@@ -248,7 +293,9 @@ def ExecuteMlpDynamics(system, dyn, steps, pace, log_filename, trajfile, dir_nam
             break
 
 
-def CalculateDFTEnergy(idx, header, system, timestep, log_filename, dir_name, trajfile, pace=1):
+def CalculateDFTEnergy(
+    idx, header, system, timestep, log_filename, dir_name, trajfile, pace=1
+):
     """
     Calculate the DFT energy and forces for a candidate structure.
 
@@ -276,7 +323,7 @@ def CalculateDFTEnergy(idx, header, system, timestep, log_filename, dir_name, tr
     None
     """
     dyn = VelocityVerlet(system, timestep, trajectory=None)
-    dyn.attach(lambda: save_xyz(system, trajfile, 'a', dir_name), interval=pace)
+    dyn.attach(lambda: save_xyz(system, trajfile, "a", dir_name), interval=pace)
 
     epot = system.get_potential_energy()
     epot = epot if not isinstance(epot, (list, np.ndarray)) else epot[0]
@@ -284,16 +331,21 @@ def CalculateDFTEnergy(idx, header, system, timestep, log_filename, dir_name, tr
     SparcLog(f"Candidate: {idx:5d} | Epot: {epot:10.6f} [eV]\n")
 
     log = MDLogger(
-        dyn=dyn, atoms=system, logfile=f"{dir_name}/{log_filename}",
-        header=header, stress=False, peratom=False, mode='a'
+        dyn=dyn,
+        atoms=system,
+        logfile=f"{dir_name}/{log_filename}",
+        header=header,
+        stress=False,
+        peratom=False,
+        mode="a",
     )
     dyn.attach(log, interval=pace)
     dyn.run(0)
 
 
-#===================================================================================================#
+# ===================================================================================================#
 # LAMMPS MD Execution
-#===================================================================================================#
+# ===================================================================================================#
 def lammps_md(system, model_path, model_name):
     """
     Run a LAMMPS MD simulation.
@@ -315,7 +367,7 @@ def lammps_md(system, model_path, model_name):
     SparcLog("Starting LAMMPS MD Simulation".center(72))
     SparcLog("=" * 72)
 
-    run_command = ['lmp', '-i', 'in.lammps']
+    run_command = ["lmp", "-i", "in.lammps"]
     try:
         subprocess.run(run_command, check=True)
         SparcLog("\n" + "=" * 72)
@@ -328,10 +380,10 @@ def lammps_md(system, model_path, model_name):
         SparcLog("=" * 72)
 
 
-#===================================================================================================#
+# ===================================================================================================#
 # Standalone Demonstration
-#===================================================================================================#
-if __name__ == '__main__':
+# ===================================================================================================#
+if __name__ == "__main__":
     """
     Standalone demonstration of the ase_md module.
 
@@ -342,7 +394,7 @@ if __name__ == '__main__':
     from ase import Atoms
 
     # Create a simple diatomic molecule (H₂)
-    atoms = Atoms('H2', positions=[[0, 0, 0], [0, 0, 0.74]])
+    atoms = Atoms("H2", positions=[[0, 0, 0], [0, 0, 0.74]])
     atoms.set_pbc([False, False, False])
 
     # Simulation parameters
@@ -355,21 +407,27 @@ if __name__ == '__main__':
     SparcLog("Running MD simulation with Nose-Hoover Thermostat...\n")
 
     # Initialize dynamics using Nose-Hoover thermostat
-    dyn_test = NoseNVT(atoms, timestep=timestep, temperature=temperature, tdamp=10 * ase.units.fs, restart=False)
+    dyn_test = NoseNVT(
+        atoms,
+        timestep=timestep,
+        temperature=temperature,
+        tdamp=10 * ase.units.fs,
+        restart=False,
+    )
 
     # Run the simulation (log file: demo_md.log, trajectory: demo_traj.xyz, saved in current directory)
     ExecuteAbInitioDynamics(
-         system=atoms,
-         dyn=dyn_test,
-         steps=steps,
-         pace=pace,
-         log_filename='md.log',
-         trajfile='traj.xyz',
-         dir_name='.',
-         name='Nose'
+        system=atoms,
+        dyn=dyn_test,
+        steps=steps,
+        pace=pace,
+        log_filename="md.log",
+        trajfile="traj.xyz",
+        dir_name=".",
+        name="Nose",
     )
 
     SparcLog("Simulation completed.\n")
-#===================================================================================================#
-#                                     END OF FILE 
-#===================================================================================================# 
+# ===================================================================================================#
+#                                     END OF FILE
+# ===================================================================================================#

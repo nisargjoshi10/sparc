@@ -2,26 +2,28 @@
 # active_learning.py
 ################################################################
 import os
-import sys
 import subprocess
-from pathlib import Path
+
 ################################################################
 # Third party import
 import dpdata
-import pandas as pd
-from ase.io import read, write
+
+from sparc.src.labelling import labelling
+
 ################################################################
 # Local Import
 from sparc.src.utils.logger import SparcLog
-from sparc.src.labelling import labelling
-from sparc.src.utils.utils import combine_trajectories
+
 ################################################################
 
-def QueryByCommittee(trajfile, model_path, num_models, max_lim, min_lim, dpmd_data_path, iteration=0):
+
+def QueryByCommittee(
+    trajfile, model_path, num_models, max_lim, min_lim, dpmd_data_path, iteration=0
+):
     """
     This code finds the maximum deviation in forces averaged over
     multiple models trained on the same dataset with different random weights.
-    
+
     Args:
         trajfile (str): Path to the ASE trajectory file containing atomic coordinates
         model_path (str): Path to the directory containing DeepMD training folders
@@ -44,19 +46,19 @@ def QueryByCommittee(trajfile, model_path, num_models, max_lim, min_lim, dpmd_da
     #     except ValueError as e:
     #         print(f"Warning: {e}")
     #         print("Proceeding with current trajectory only")
-    
+
     # Load the ASE trajectory and convert it to DeePMD format
-    dataset = dpdata.LabeledSystem(trajfile, fmt='ase/traj')
+    dataset = dpdata.LabeledSystem(trajfile, fmt="ase/traj")
     # dpmd_data_path = iter_paths['dpmd_dir']
     # dataset.to_deepmd_npy(str(dpmd_data_path))
     dataset.to_deepmd_npy(str(dpmd_data_path))
-    
+
     SparcLog("========================================================================")
     SparcLog("{}".format(f"Model Path: {model_path}".center(72)))
     SparcLog("========================================================================")
-    
-    outfile = f"{str(dpmd_data_path)}/model_dev_{iteration}.out"
-    
+
+    outfile = f"{dpmd_data_path!s}/model_dev_{iteration}.out"
+
     # Dynamically find the model files
     model_names = []
     for folder in os.listdir(model_path):
@@ -75,10 +77,20 @@ def QueryByCommittee(trajfile, model_path, num_models, max_lim, min_lim, dpmd_da
 
     # Validate the number of models
     if len(model_names) < num_models:
-        SparcLog("========================================================================")
-        SparcLog("!{}!".format(f"Error: Found only {len(model_names)} models, but {num_models} are required".center(70)))
+        SparcLog(
+            "========================================================================"
+        )
+        SparcLog(
+            "!{}!".format(
+                f"Error: Found only {len(model_names)} models, but {num_models} are required".center(
+                    70
+                )
+            )
+        )
         SparcLog("!{}!".format("Check the model_path!".center(70)))
-        SparcLog("========================================================================")
+        SparcLog(
+            "========================================================================"
+        )
         raise ValueError(
             f"Found only {len(model_names)} models, but {num_models} are required. Check the model_path!"
         )
@@ -87,43 +99,61 @@ def QueryByCommittee(trajfile, model_path, num_models, max_lim, min_lim, dpmd_da
     SparcLog("{}".format("Using the following models:".center(72)))
     SparcLog("========================================================================")
     for model in model_names:
-        SparcLog("{}".format(model.center(72)))
+        SparcLog(f"{model.center(72)}")
     SparcLog("========================================================================")
 
     # Construct the dp model-devi command
-    command = ["dp", "model-devi", "-m"] + model_names + ["-s", str(dpmd_data_path), "-o", str(outfile)]
+    command = (
+        ["dp", "model-devi", "-m"]
+        + model_names
+        + ["-s", str(dpmd_data_path), "-o", str(outfile)]
+    )
 
     # Run the command
     try:
         subprocess.run(command, check=True)
-        SparcLog("========================================================================")
-        SparcLog("!{}!".format("Model deviation calculation completed successfully!".center(70)))
+        SparcLog(
+            "========================================================================"
+        )
+        SparcLog(
+            "!{}!".format(
+                "Model deviation calculation completed successfully!".center(70)
+            )
+        )
         SparcLog("{}".format(f"Results saved in: {outfile}".center(72)))
-        SparcLog("========================================================================")
+        SparcLog(
+            "========================================================================"
+        )
     except subprocess.CalledProcessError as e:
-        SparcLog("========================================================================")
+        SparcLog(
+            "========================================================================"
+        )
         SparcLog("!{}!".format("Error in dp model-devi command execution".center(70)))
-        SparcLog("!{}!".format(str(e).center(70)))
-        SparcLog("========================================================================")
+        SparcLog(f"!{str(e).center(70)}!")
+        SparcLog(
+            "========================================================================"
+        )
 
     # Update labelling to use the dft_dir
     candidate_found, labelled_files = labelling(
-        trajfile, 
-        str(outfile), 
-        min_lim, 
+        trajfile,
+        str(outfile),
+        min_lim,
         max_lim,
-        output_dir=f"{str(dpmd_data_path)}/dft_candidates"  # Pass the dft directory for POSCAR files
+        output_dir=f"{dpmd_data_path!s}/dft_candidates",  # Pass the dft directory for POSCAR files
     )
-      
+
     # Log iteration info
-    with open('learning_state.log', 'a') as f:
+    with open("learning_state.log", "a") as f:
         f.write(f"\nIteration {iteration:06d}\n")
         f.write(f"Training data from: {trajfile}\n")
         f.write(f"Model deviation range: [{min_lim:.3f}, {max_lim:.3f}] eV/Å\n")
         f.write(f"Candidates found: {len(labelled_files) if candidate_found else 0}\n")
         f.write("-" * 80 + "\n")
-    
+
     return candidate_found, labelled_files, model_names
-#===================================================================================================#
-#                                     END OF FILE 
-#===================================================================================================#    
+
+
+# ===================================================================================================#
+#                                     END OF FILE
+# ===================================================================================================#

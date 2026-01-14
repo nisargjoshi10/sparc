@@ -1,6 +1,7 @@
-#--------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------
 import numpy as np
-#--------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------
 # soft import
 try:
     import chemiscope
@@ -16,6 +17,7 @@ except Exception as e:
 # helper functions
 # =========================
 
+
 def _require_chemiscope():
     if chemiscope is None:
         raise RuntimeError(
@@ -23,6 +25,7 @@ def _require_chemiscope():
             "    pip install chemiscope\n"
             "Docs: https://chemiscope.org/"
         )
+
 
 def _parse_spec(spec):
     """Parse a list of properties eg: 'distance:0,7' -> ('distance', (0,7))."""
@@ -34,11 +37,13 @@ def _parse_spec(spec):
         kind, idx = s, tuple()
     return kind.lower(), idx
 
+
 def _auto_name(kind, idx):
     """Return the property key ('distance', 'angle', ...)."""
     if kind == "frame":
         return "frame"
-    return kind 
+    return kind
+
 
 def _ensure_atom_index(frames, props, key="atom_index"):
     #
@@ -53,6 +58,7 @@ def _ensure_atom_index(frames, props, key="atom_index"):
         "description": "Atom index (start from 0)",
     }
 
+
 def _resolve_axis_name(properties, name):
     """
     resolve distance:0,7' -> ('distance', (0,7)) and return name key.
@@ -63,26 +69,30 @@ def _resolve_axis_name(properties, name):
     if len(candidates) == 1:
         return candidates[0]
     if len(candidates) == 0:
-        raise KeyError(f"Property '{name}' not found. Available keys: {list(properties.keys())}")
+        raise KeyError(
+            f"Property '{name}' not found. Available keys: {list(properties.keys())}"
+        )
     raise KeyError(
         f"Ambiguous base name '{name}'. Candidates: {candidates}. "
         f"Use one explicitly or pass 'names=[...]' when building."
     )
 
+
 # =========================
 # main ChemView function
 # =========================
 
+
 def ChemView(
     *,
-    frames,                  # sequence of ase.Atoms
-    specs,                   # e.g. ["frame","energy","distance:0,7", "aangle:0,1,2"]
-    x,                       # axis property (structure)
-    y,                       # axis property (structure)
-    z=None,                  # [optional] axis property (structure)
-    names=None,              # rename keys for specs (same length as specs)
+    frames,  # sequence of ase.Atoms
+    specs,  # e.g. ["frame","energy","distance:0,7", "aangle:0,1,2"]
+    x,  # axis property (structure)
+    y,  # axis property (structure)
+    z=None,  # [optional] axis property (structure)
+    names=None,  # rename keys for specs (same length as specs)
     units_override=None,
-    **kwargs,                # meta_name, color_atoms, labels, map_color(plot), plot
+    **kwargs,  # meta_name, color_atoms, labels, map_color(plot), plot
 ):
     """
     Build properties from user defined specs and launch a Chemiscope viewer.
@@ -138,15 +148,18 @@ def ChemView(
         elif kind == "distance":
             if len(idx) != 2:
                 raise ValueError("distance requires i,j")
-            vals = [at.get_distance(idx[0], idx[1]) for at in frames]; unit =  "Å"
+            vals = [at.get_distance(idx[0], idx[1]) for at in frames]
+            unit = "Å"
         elif kind == "angle":
             if len(idx) != 3:
                 raise ValueError("angle requires i,j,k")
-            vals = [at.get_angle(idx[0], idx[1], idx[2]) for at in frames]; unit = "deg"
+            vals = [at.get_angle(idx[0], idx[1], idx[2]) for at in frames]
+            unit = "deg"
         elif kind == "dihedral":
             if len(idx) != 4:
                 raise ValueError("dihedral requires i,j,k,l")
-            vals = [at.get_dihedral(idx[0], idx[1], idx[2], idx[3]) for at in frames]; unit = "deg"
+            vals = [at.get_dihedral(idx[0], idx[1], idx[2], idx[3]) for at in frames]
+            unit = "deg"
         else:
             raise ValueError(f"Unsupported spec kind: {kind!r}")
 
@@ -162,21 +175,21 @@ def ChemView(
     if z is not None:
         z = _resolve_axis_name(props, z)
 
-    map_color = kwargs.get("map_color", None)
+    map_color = kwargs.get("map_color")
     if map_color is not None:
         map_color = _resolve_axis_name(props, map_color)
 
     # ---- viewer settings / options ----
-    meta_name   = kwargs.get("meta_name", "ChemView")
+    meta_name = kwargs.get("meta_name", "ChemView")
     color_atoms = kwargs.get("color_atoms", "element")
     show_labels = bool(kwargs.get("labels", False))
-    show_map    = bool(kwargs.get("plot", True))
+    show_map = bool(kwargs.get("plot", True))
 
     structure_settings = {
-        "unitCell": False,                      # True : show the cell
+        "unitCell": False,  # True : show the cell
         "spaceFilling": False,
-        "atomLabels": show_labels,              # True: element symbols as labels
-        "environments": {"activated": True},    # enable click-to-select atoms
+        "atomLabels": show_labels,  # True: element symbols as labels
+        "environments": {"activated": True},  # enable click-to-select atoms
     }
     if color_atoms in ("element", "atom_index"):
         structure_settings["color"] = {"property": color_atoms}
@@ -185,14 +198,18 @@ def ChemView(
     mode = "structure"
 
     if show_map:
-        map_settings = {"x": {"property": x}, "y": {"property": y}, "z": {"property": (z or "")}}
+        map_settings = {
+            "x": {"property": x},
+            "y": {"property": y},
+            "z": {"property": (z or "")},
+        }
         valid_colors = {x, y}
         if z:
             valid_colors.add(z)
         if map_color in valid_colors:
             map_settings["color"] = {"property": map_color}
         settings["map"] = map_settings
-        mode = "default"   # plot + structure
+        mode = "default"  # plot + structure
 
     return chemiscope.show(
         frames=frames,
@@ -202,6 +219,8 @@ def ChemView(
         settings=settings,
         mode=mode,
     )
-#--------------------------------------------------------------------------------------
+
+
+# --------------------------------------------------------------------------------------
 # End of File
-#--------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 #################### Global Parameters ###########################
-SYSTEM = 13-Butadiene
+SYSTEM = AmmoniaBorate
 ISTART = 0
 ICHARG = 2
 ISPIN  = 1
