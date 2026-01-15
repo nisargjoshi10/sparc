@@ -34,19 +34,19 @@ The dataset is hosted on Zenodo and can be downloaded using either a web browser
 
 ### Download via browser
 
-1. Navigate to the [Zenodo record](https://),
+1. Navigate to the [Zenodo record](https://zenodo.org/records/18261342),
 2. Download the compressed archive,
 3. Extract the archive:
 
 ```bash
-tar -xvf sparc_mlip_workflow_dataset.tar.gz
+tar -xvf AmmoniaBorate.tar.gz 
 ```
 
 ## Download via command line
 
 ```bash
-wget <ZENODO_DOWNLOAD_URL>
-tar -xvf sparc_mlip_workflow_dataset.tar.gz
+wget https://zenodo.org/records/18261342/files/AmmoniaBorate.tar.gz?download=1
+tar -xvf AmmoniaBorate.tar.gz
 ```
 
 ## Citation
