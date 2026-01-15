@@ -272,3 +272,19 @@ pre-commit run --all-files
 > This package is under active development. Features and APIs may change. \
 > Also, this code is designed to work in a Linux environment. It may not be fully compatible with macOS systems.
 
+
+## Citation
+
+If you use this dataset or workflow in your research, please cite:
+
+```bibtex
+@software{sparc,
+  author = {Verma, Rahul and Joshi, Nisarg and Pfaendtner, Jim},
+  doi    = {10.xxxx/yyyy},
+  license = {MIT},
+  month  = {jan},
+  title  = {{SPARC}: An Automated Workflow Toolkit for Accelerated Active Learning of Reactive Machine Learning Interatomic Potentials},
+  url    = {https://github.com/rahulumrao/sparc},
+  year   = {2025}
+}
+```
