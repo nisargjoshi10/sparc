@@ -1,4 +1,4 @@
-name: sparc_new
+name: sparc
 channels:
   - conda-forge
   - defaults
@@ -279,4 +279,4 @@ dependencies:
       - wrapt==1.17.2
       - xtb==22.1
       - xtb-ase==0.0.1
-prefix: /home/rverma7/anaconda3/envs/sparc_new
+prefix: /home/rverma7/anaconda3/envs/sparc
