@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 # active_learning.py
 ################################################################
 import os
@@ -33,24 +32,10 @@ def QueryByCommittee(
         min_lim (float): Minimum force deviation threshold
         iteration (int): Current iteration number
     """
-    # Create iteration directory structure
-    # iter_paths = create_iter_folders(iteration)
-    # print(f"Trajfile name from QbC {trajfile}")
-    # For training, combine trajectories from all previous iterations
-    # if iteration > 0:
-    #     try:
-    #         # combined_traj = combine_trajectories(trajfile, Path.cwd(), iteration-1)
-    #         combined_traj = combine_trajectories(trajfile, iteration-1)
-    #         # Update trajfile to use combined trajectory for model training
-    #         trajfile = combined_traj
-    #     except ValueError as e:
-    #         print(f"Warning: {e}")
-    #         print("Proceeding with current trajectory only")
 
     # Load the ASE trajectory and convert it to DeePMD format
     dataset = dpdata.LabeledSystem(trajfile, fmt="ase/traj")
-    # dpmd_data_path = iter_paths['dpmd_dir']
-    # dataset.to_deepmd_npy(str(dpmd_data_path))
+    # 
     dataset.to_deepmd_npy(str(dpmd_data_path))
 
     SparcLog("========================================================================")
@@ -153,7 +138,3 @@ def QueryByCommittee(
 
     return candidate_found, labelled_files, model_names
 
-
-# ===================================================================================================#
-#                                     END OF FILE
-# ===================================================================================================#

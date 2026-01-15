@@ -1,5 +1,4 @@
-#!/usr/bin/python3
-# sparc.py
+# sparc.py [Main Module]
 """
     SPARC (**S**mart **P**otential with **A**tomistic **R**are Events and **C**ontinuous Learning)
 
@@ -639,7 +638,6 @@ if __name__ == "__main__":
 # stats = pstats.Stats(pr)
 # stats.sort_stats(pstats.SortKey.TIME)
 # stats.dump_stats(filename='sparc.prof')  # Save profile data
+# =============================================================#
 
-# ===================================================================================================#
-#                                     END OF FILE
-# ===================================================================================================#
+

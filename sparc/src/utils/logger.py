@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 # logger.py
 ################################################################
 import os
@@ -111,5 +110,4 @@ def close_logger():
         global_logger = None
 
 
-# Set up the logger with the default log file when the module is imported
-# setup_logger(DEFAULT_LOG_FILE)
+#

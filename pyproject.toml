@@ -28,7 +28,9 @@ dependencies = [
   "scipy",
   "dpdata",
   "cython",
-  "PyYAML"
+  "PyYAML",
+  "pytest>=7",
+  "pytest-cov>=4"
 ]
 
 [project.optional-dependencies]

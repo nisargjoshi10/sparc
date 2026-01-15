@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 # data_processing.py
 ################################################################
 import dpdata
@@ -71,7 +70,3 @@ def get_data(ase_traj="AseMD.traj", dir_name="Dataset", skip_min=0, skip_max=Non
         f"# The {dir_name}/validation data contains %d frames" % len(data_validation)
     )
 
-
-# ===================================================================================================#
-#                                     END OF FILE
-# ===================================================================================================#

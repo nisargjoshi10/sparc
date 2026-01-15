@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 # read_incar.py
 from __future__ import annotations
 from dataclasses import dataclass
@@ -138,6 +137,3 @@ if __name__ == "__main__":
     print(incar_params)
 
 
-# ===================================================================================================#
-#                                     END OF FILE
-# ===================================================================================================#

@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # banner.py
 from sparc.src.utils.logger import SparcLog
 

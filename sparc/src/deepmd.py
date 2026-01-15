@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 #! deepmd.py
 # """
 # DeepMD module for SPARC package.
@@ -115,8 +114,8 @@ def evaluate_model_accuracy(model_path, test_data_path):
             check=True,
             text=True,  # ensures the output is decoded to str
         )
-        # output_lines = result.stdout.splitlines()
-        # print("Full DeepMD Test Output:\n", output_lines)
+        #
+        # 
         SparcLog("=" * 72)
         SparcLog("DeepMD Model Evaluation Results")
         SparcLog("-" * 72)
@@ -346,7 +345,3 @@ def deepmd_training(
 
     return frozen_model_name
 
-
-# ===================================================================================================#
-#                                     END OF FILE
-# ===================================================================================================#

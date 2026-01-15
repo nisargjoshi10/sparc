@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 # plumed_wrapper.py
 ################################################################
 import os
@@ -126,18 +125,15 @@ def umbrella(config, us_dir, dp_path, dp_model):
     None
     """
     # Open the PLUMED input file and read its contents
-    # config['deepmd_setup']['umbrella_sampling'].get('config_file', 'umbrella_sampling.yaml')
     with open(config["deepmd_setup"]["umbrella_sampling"]["config_file"]) as f:
         umbrella_config = yaml.safe_load(f)
 
-    # Initialize
     # Initialize simulation parameters
     temperature = config.get("md_simulation", {}).get("temperature", 300)
     thermostat = config.get("md_simulation", {}).get("thermostat", "Nose")
     thermostat_func = {"Nose": NoseNVT, "Langevin": LangevinNVT}
     MDSteps = config.get("deepmd_setup", {}).get("md_steps", 0)
-    # print(f"MD Steps {MDSteps}")
-    # sys.exit(1)
+    
     # Set system
     for w, window in enumerate(umbrella_config["umbrella_windows"]):
         SparcLog(f"Running Umbrella Sampling for window {w}\n")
@@ -147,9 +143,8 @@ def umbrella(config, us_dir, dp_path, dp_model):
         os.makedirs(window_dir, exist_ok=True)
         usmd_log = os.path.join(
             f"window_{w:03d}", "usmd.log"
-        )  # f"{us_dir['dpmd_dir']}/usmd.log"
-        # print(f"Current Window: {window_dir} || {usmd_log}")
-        # sys.exit(1)
+        )
+        
         # Load structure and re-initialize system and calculator
         dp_atoms = read(struct_file)
         dp_atoms.write(os.path.join(window_dir, "input.xyz"))
@@ -201,7 +196,3 @@ def umbrella(config, us_dir, dp_path, dp_model):
             epot_threshold=config["deepmd_setup"]["epot_threshold"],
         )
 
-
-# ===================================================================================================#
-#                                     END OF FILE
-# ===================================================================================================#

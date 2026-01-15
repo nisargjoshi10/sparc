@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 # calculator.py
 ################################################################
 import argparse
@@ -200,6 +199,3 @@ if __name__ == "__main__":
 
     calc = dft_calculator(config, print_screen=args.print)
     SparcLog(f"Calculator {config['dft_calculator']['name']} is set up successfully.")
-# ===================================================================================================#
-# Enf of File
-# ===================================================================================================#
