@@ -78,6 +78,6 @@ quote-style = "double"
 indent-style = "space"
 
 [tool.ruff.lint.per-file-ignores]
-"**/__init__.py" = ["F401"]     # re-exports are common
-"scripts/**" = ["T201"]         # if you print in CLI scripts (optional)
-"examples/**" = ["T201"]        # optional
+"**/__init__.py" = ["F401"] 
+"scripts/**" = ["T201"]
+"examples/**" = ["T201"]

@@ -39,20 +39,13 @@ Preparation
 
 First, create a new test directory and download the tutorial data. If you haven't installed SPARC yet, see :doc:`install` or the :doc:`quickstart` guide.
 
-.. code-block:: bash
-
-   mkdir nh3bh3_test
-   cd nh3bh3_test
-   wget https://github.com/rahulumrao/sparc/raw/main/examples/AmmoniaBorate.zip
-   unzip AmmoniaBorate.zip
-
+The dataset is hosted on Zenodo and can be accessed via the corresponding `Zenodo record <https://zenodo.org/records/18261342>`_.
 You can also download the archive directly from `here <https://github.com/rahulumrao/sparc/raw/main/examples/AmmoniaBorate.zip>`_.
-
-..   cp -r $SPARC_HOME/docs/tests/nh3bh3/* .   
-
-If you `cd` to the unpacked folder, it will have the following files:
+After downloading the archive, extract its contents:
 
 .. code-block:: bash
+
+   $ tar -xvf AmmoniaBorate.tar.gz
 
    $ cd AmmoniaBorate
    $ ls
@@ -67,6 +60,47 @@ If you `cd` to the unpacked folder, it will have the following files:
 - ``plumed_dp.dat``: Plumed file,
 - ``input.yaml``: SPARC workflow configuration file,
 - ``input.json``: DeepMD training parameters.
+
+.. .. code-block:: bash
+
+..    mkdir nh3bh3_test
+..    cd nh3bh3_test
+..    wget https://github.com/rahulumrao/sparc/raw/main/examples/AmmoniaBorate.zip
+..    unzip AmmoniaBorate.zip
+
+
+
+..   cp -r $SPARC_HOME/docs/tests/nh3bh3/* .   
+
+.. If you `cd` to the unpacked folder, it will have the following files:
+
+.. .. code-block:: bash
+
+..    $ cd AmmoniaBorate
+..    $ ls
+..    INCAR  POSCAR  input.json  input.yaml  iter_000000  plumed_dp.dat
+..    $ tree iter_000000
+..       iter_000000
+..       └── 00.dft
+..          └── AseMD.traj
+
+.. - ``POSCAR``: Initial structure in VASP format,
+.. - ``INCAR``: VASP input file,
+.. - ``plumed_dp.dat``: Plumed file,
+.. - ``input.yaml``: SPARC workflow configuration file,
+.. - ``input.json``: DeepMD training parameters.
+
+.. note::
+
+   All first-principles calculations were performed using VASP package and since it as licenced software, 
+   the POTCAR files are not included in the archive. Users must supply the appropriate POTCAR files 
+   corresponding to their licensed VASP distribution.
+
+   The compressed archive contains all input files required to execute the SPARC MLIP workflow.
+   It also includes the configuration files necessary to fully reproduce the results reported in this study.
+   Additionally, the Result directory located at the root level of the extracted archive contains the output
+   data generated from the execution of the workflow.
+
 
 The file ``AseMD.traj`` inside the folder ``iter_000000/00.dft`` contains the initial AIMD data computed with VASP to start the workflow. Now we only need to prepare the ``input.yaml`` ( see :ref:`inputfile`) file, which defines the entire SPARC workflow.
 
@@ -130,6 +164,7 @@ The ``input.yaml`` defines the SPARC workflow, which is organized into four main
    md_steps: 500000                   # ML dynamics steps
    multiple_run: 1                    # Run multiple inference of ML/MD with different veolcities
    log_frequency: 80                  # log ML/MD
+   epot_threshold: 2.5                # Allowed +/- eV thresold potentail energy fluctuation durinf ML/MD run
    use_plumed: True                   # True, if run ML/MD with PLUMED
    plumed_file: 'plumed_dp.dat'       # Plumed input file
 
