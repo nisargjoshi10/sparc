@@ -49,7 +49,7 @@ wget https://zenodo.org/records/18261342/files/AmmoniaBorate.tar.gz?download=1
 tar -xvf AmmoniaBorate.tar.gz
 ```
 
-## Citation
+<!-- ## Citation
 
 If you use this dataset or workflow in your research, please cite:
 
@@ -63,5 +63,5 @@ If you use this dataset or workflow in your research, please cite:
   url    = {https://github.com/rahulumrao/sparc},
   year   = {2025}
 }
-```
+``` -->
 

@@ -273,7 +273,7 @@ pre-commit run --all-files
 > Also, this code is designed to work in a Linux environment. It may not be fully compatible with macOS systems.
 
 
-## Citation
+<!-- ## Citation
 
 If you use this dataset or workflow in your research, please cite:
 
@@ -287,4 +287,4 @@ If you use this dataset or workflow in your research, please cite:
   url    = {https://github.com/rahulumrao/sparc},
   year   = {2025}
 }
-```
+``` -->
