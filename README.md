@@ -4,6 +4,7 @@
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![GitHub stars](https://img.shields.io/github/stars/rahulumrao/sparc?style=social)](https://github.com/rahulumrao/sparc/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/rahulumrao/sparc?style=social)](https://github.com/rahulumrao/sparc/network/members)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![Documentation Status](https://readthedocs.org/projects/sparc/badge/)](https://docs-sparc.readthedocs.io/en/latest/)
 
 **S**mart **P**otential with **A**tomistic **R**are Events and **C**ontinuous Learning
