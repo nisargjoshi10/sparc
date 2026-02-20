@@ -1,1 +1,0 @@
-../../01.train/training_2/frozen_model_2.pb
