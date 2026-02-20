@@ -16,6 +16,9 @@
 
 For More Information, Please Visit [SPARC Documentation](https://docs-sparc.readthedocs.io/en/latest/).
 
+Try SPARC [Tutorial](https://github.com/rahulumrao/sparc/blob/main/examples/SPARC_Tutorial.ipynb)  
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rahulumrao/sparc/blob/main/examples/SPARC_Tutorial.ipynb)
+
 ## Overview
 
 SPARC is a Python package build around the `ASE` wrapper that implements an automated workflow of developing machine learning potential for reactive chemical systems. It automates the process of identifying new structures in the configurational space without having to run initial _ab-initio_ MD simulations. SPARC is designed to work seamlessly within the Python framewrok to efficiently improve ML model.
