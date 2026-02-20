@@ -6,7 +6,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/rahulumrao/sparc?style=social)](https://github.com/rahulumrao/sparc/network/members)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![Documentation Status](https://readthedocs.org/projects/sparc/badge/)](https://docs-sparc.readthedocs.io/en/latest/)
-[![CI](https://github.com/rahulumrao/sparc/actions/workflows/ci.yml/badge.svg)](https://github.com/rahulumrao/sparc/actions)
+[![CI](https://github.com/rahulumrao/sparc/actions/workflows/ci.yaml/badge.svg)](https://github.com/rahulumrao/sparc/actions)
 
 
 **S**mart **P**otential with **A**tomistic **R**are Events and **C**ontinuous Learning
