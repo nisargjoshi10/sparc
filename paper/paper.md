@@ -23,7 +23,7 @@ authors:
 affiliations:
  - name: Department of Chemical and Biomolecular Engineering, North Carolina State University, Raleigh, USA
    index: 1
-date: 18 Spetember 2025
+date: 18 September 2025
 bibliography: ref.bib
 ---
 
@@ -37,11 +37,11 @@ Herein, we present `SPARC` (Smart Potential with Atomistic Rare events and Conti
 
 While the AL protocol [@podryabinkin2017ActiveLearning] [@miksch2021strategiesMLPs] has become a standard approach to refine ML models, it does not guarantee access to kinetically or thermodynamically rare events. Many learning schemes for MLIP invoke the use of higher temperature simulations to enhance phase space exploration. Even so, without additional enhanced sampling there is little to no possibility of systematically achieving reliable reactive MLIPs. 
 
-The motivation behind `SPARC` is to simplify the generation of high-quality training data and minimize the level of manual intervention required from the user. Although AL strategies have already proven effective for expanding training datasets, their integration with enhance sampling techniques have typically been done in an ad hoc and largely manual manner. This makes it difficult to generalize these workflows beyond the original problem and limits reproducibility. 
+The motivation behind `SPARC` is to simplify the generation of high-quality training data and minimize the level of manual intervention required from the user. Although AL strategies have already proven effective for expanding training datasets, their integration with enhanced sampling techniques have typically been done in an ad hoc and largely manual manner. This makes it difficult to generalize these workflows beyond the original problem and limits reproducibility. 
 
 Several groups have coupled AL with enhanced sampling or pathway exploration techniques. Vitartas et al. [@vitartas2025ArXiv] combined AL with well-tempered metadynamics to study organic reactions in both gas phase and solvent. Rivero et al. [@rivero2019JCP] trained PhysNet architecture together with an AL at 1000K MD for Diels–Alder and hydrogen transfer reactions. Ang et al. [@ang2021Chem] used SchNet combined with nudged elastic band calculations to explore solvent effects on pericyclic reactions. Parrinello and coworkers [@parrinello2020NatCom] coupled AL with variational enhanced sampling using DeePMD to investigate the phase diagram of gallium. Zhao et al. [@zhao2022umbrella] introduced a workflow combining umbrella sampling with AL to map out the solid-phase transition of GeSbTe. These studies highlight the promise of AL combined with enhanced sampling, but they remain highly tailored and driven by use case-specific implementations that can be difficult to generalize or reproduce.
 
-`SPARC` automates this process by integrating PLUMED library [@tribello2014plumed] with AL protocol into a single modular workflow (see Figure 1). This allows user to use any advance sampling technique implemented in PLUMED to explore the configurational space and finding reactive configurations enabling scalable and reproducible MLIPs for generalized chemical environment.
+`SPARC` automates this process by integrating the PLUMED library [@tribello2014plumed] with AL protocol into a single modular workflow (see Figure 1). This allows user to use any advance sampling technique implemented in PLUMED to explore the configurational space and finding reactive configurations enabling scalable and reproducible MLIPs for generalized chemical environment.
 
 <!-- ![Schematic of the SPARC workflow showing the iterative loop of sampling, uncertainty estimation, and labeling.\label{fig:workflow}](workflow_diagram.svg) -->
 
@@ -54,7 +54,7 @@ Several groups have coupled AL with enhanced sampling or pathway exploration tec
 
 ML/MD output is stored in ASE trajectory formats as this enables the broader ecosystem of analysis tools that already support ASE compatible formats. Since `SPARC` manages all stages via ASE, no additional infrastructure is needed beyond a Python environment with the required dependencies installed. This makes the workflow highly portable across computing environments and suitable for both exploratory studies and large-scale production run.
 
-![A schematic representation of AL cycle for training MLIPs. `SPARC` implements an additional block (PES exploration) to this cycle for systmatic exploration of the configurational space.\label{fig:flowchart}](figures/flowchart.png){ width=1500px }
+![A schematic representation of AL cycle for training MLIPs. `SPARC` implements an additional block (PES exploration) to this cycle for systematic exploration of the configurational space.\label{fig:flowchart}](figures/flowchart.png){ width=1500px }
 
 # Technical requirements and usage examples
 
@@ -68,7 +68,7 @@ sparc -i input.yaml
 
 <!-- To illustrate the capabilities of SPARC, we applied the workflow to a simple **ammonia borane (NH<sub>3</sub>BH<sub>3</sub>)** molecule.. The goal is to demonstrate how SPARC systematically expands training data and improves the accuracy of MLIPs through iterative active learning. -->
 
-To illustrate the capabilities of `SPARC`, we applied the workflow to a simple ammonia borate (NH$_3$BH$_3$) molecule. The goal is to demonstrate how `SPARC` systematically expands training data and improves the accuracy of MLIPs through iterative learning.  The initial training dataset only has 64 cofigurations, generated by scanning the B-N bond at semiempirical level, followed by DFT single point calculations at PBE level with energy cutoff of 300 eV in VASP. 
+To illustrate the capabilities of `SPARC`, we applied the workflow to a simple ammonia borate (NH$_3$BH$_3$) molecule. The goal is to demonstrate how `SPARC` systematically expands training data and improves the accuracy of MLIPs through iterative learning.  The initial training dataset only has 64 configurations, generated by scanning the B-N bond at the semiempirical level, followed by DFT single point calculations at PBE level with energy cutoff of 300 eV in VASP. 
 
 An ensemble of DeePMD models were trained and one of the ML models was used to run MD simulation for 5 ns with a timestep of 1 fs for each iteration. To ensure exploration beyond equilibrium structures, enhanced sampling was employed using parallel bias metadynamics (PbMetaD) [@pfaendtner2015PbMetaD] on SPRINT collective variables [@pietrucci2011sprint].  We obtain the uncertainty in forces by using an ensemble of trained models within QbC approach [@miksch2021strategiesMLPs] to flag configurations. Then configurations with standard deviation in the atomic forces between 0.05 to 0.5 eV/Å were automatically flagged and labeled with DFT. These structures were then added into the existing training dataset, after which the DeePMD models were retrained to get updated potential for the next cycle. 
 
@@ -79,7 +79,7 @@ The effect of this iterative refinement is shown in \autoref{fig:error} which pl
 By the fourth iteration, the error had converged to near-zero values, reflecting a stable and reactive MLIP. During exploration the model will be exposed to new configurations beyond training data which can result in very high forces, as observed in iteration 2.
 
 
-We further assessed the reliability of trained MLIP under finite-temperature molecular dynamics. We performed enhanced sampling MD for both ab-initio and ML. In these simulations, the B-N bond distance was biased with metadynamics with a Gaussian width 0.05 Å and height 0.005 eV. The resulting free energy profiles is shown in \autoref{fig:fesProfile}.
+We further assessed the reliability of trained MLIP under finite-temperature molecular dynamics. We performed enhanced sampling MD for both ab-initio and ML. In these simulations, the B-N bond distance was biased with metadynamics with a Gaussian width 0.05 Å and height 0.005 eV. The resulting free energy profile is shown in \autoref{fig:fesProfile}.
 
 ![Free energy profile computed from both AIMD (black) and MLIP (red).\label{fig:fesProfile}](figures/FreeEnergy.png){ width=1500px }
 
