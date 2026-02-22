@@ -74,7 +74,7 @@ An ensemble of DeePMD models were trained and one of the ML models was used to r
 
 The effect of this iterative refinement is shown in \autoref{fig:error} which plots the maximum force deviation recorded in each cycle. In the initial iterations, deviations were large. As the workflow explores the chemical space and finds new configurations, these errors slowly decreased, indicating that the model was progressively learning the relevant physics. 
 
-![Force deviation across `SPARC` iterations. The shaded region marks the uncertainty thresholds for labeling.\label{fig:error}](figures/error.png){ width=1500px }
+![Force deviation across `SPARC` iterations. The shaded region marks the uncertainty thresholds for labeling.\label{fig:error}](figures/force_deviation.png){ width=1500px }
 
 By the fourth iteration, the error had converged to near-zero values, reflecting a stable and reactive MLIP. During exploration the model will be exposed to new configurations beyond training data which can result in very high forces, as observed in iteration 2.
 

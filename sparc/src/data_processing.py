@@ -34,8 +34,8 @@ def get_data(ase_traj="AseMD.traj", dir_name="Dataset", skip_min=0, skip_max=Non
 
     .. code-block:: python
 
-        import dpdata
-        dpdata.LabeledSystem(f'{ase_traj}', 'ase/traj')
+        from sparc.src.data_processing import get_data
+        get_data(ase_traj="AseMD.traj", dir_name="Dataset", skip_min=0, skip_max=None)
     """
 
     # Load the trajectory (ASE trajectory format) using dpdata.
