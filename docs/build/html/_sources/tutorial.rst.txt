@@ -164,7 +164,7 @@ The ``input.yaml`` defines the SPARC workflow, which is organized into four main
    md_steps: 500000                   # ML dynamics steps
    multiple_run: 1                    # Run multiple inference of ML/MD with different veolcities
    log_frequency: 80                  # log ML/MD
-   epot_threshold: 2.5                # Allowed +/-eV thresold potentail energy fluctuation durinf ML/MD run
+   epot_threshold: 2.5                # Allowed +/- eV thresold potentail energy fluctuation durinf ML/MD run
    use_plumed: True                   # True, if run ML/MD with PLUMED
    plumed_file: 'plumed_dp.dat'       # Plumed input file
 

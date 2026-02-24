@@ -248,8 +248,8 @@
 
 <span class="sd">    .. code-block:: python</span>
 
-<span class="sd">        import dpdata</span>
-<span class="sd">        dpdata.LabeledSystem(f&#39;{ase_traj}&#39;, &#39;ase/traj&#39;)</span>
+<span class="sd">        from sparc.src.data_processing import get_data</span>
+<span class="sd">        get_data(ase_traj=&quot;AseMD.traj&quot;, dir_name=&quot;Dataset&quot;, skip_min=0, skip_max=None)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># Load the trajectory (ASE trajectory format) using dpdata.</span>
@@ -294,7 +294,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2024.</p>
+    <p>&#169; Copyright 2026.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

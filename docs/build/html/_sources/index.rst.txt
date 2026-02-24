@@ -96,7 +96,7 @@ Indices and Tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search` 
-  
+
 .. _vasp: https://www.vasp.at/
 .. _deepmd: https://github.com/deepmodeling/deepmd-kit
 .. _plumed: https://www.plumed.org/

@@ -5,7 +5,7 @@ import sys
 sys.path.insert(0, os.path.abspath("../src"))  # Ensure the correct path to your package
 
 project = "SPARC"
-copyright = "2024"
+copyright = "2026"
 author = "Rahul Verma"
 
 # The full version, including alpha/beta/rc tags
