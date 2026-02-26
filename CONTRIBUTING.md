@@ -1,5 +1,4 @@
 ## Code Standards
-
 Before pushing code to the development branch, please make sure your changes respect the following code standards.
 
 ## PEP 8
